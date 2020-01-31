@@ -1,0 +1,154 @@
+body{
+  padding: 0px!important;
+  margin: 0px!important;
+}
+
+.cbsc-logo{
+  width: auto;
+  height:110px;
+}
+
+.top-nav{
+  /* background-color: #00ced1; */
+  background-color: 	#FDCD00;
+}
+
+.top-social p{
+  padding-bottom: 5px;
+  margin-bottom: 0px;
+}
+
+
+.heading-big{
+  font-size: 2.1rem;
+  padding-top: 30px;
+}
+
+.top-social{
+  padding-top: 5px;
+  background-color: #000;
+}
+
+.slider-img{
+  width: 100%;
+  height: 450px;
+}
+
+.Announcements{
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.Announcements p{
+margin-bottom: 0px;
+padding-left: 15px;
+padding-right: 15px;
+padding-bottom: 5px;
+padding-top: 5px;
+
+}
+
+.tab-right{
+  border: 1px solid #9900cc;
+}
+
+.panel-default{
+    border: 1px solid #9900cc;
+}
+
+.tab-left{
+  border: 1px solid #9900cc;
+
+}
+
+.announ-head{
+  font-size: 18px;
+  background-color: #DAF7A6;
+  padding: 10px 8px;
+}
+
+.panel ul
+{
+    padding:0px;
+    margin:0px;
+    list-style:none;
+}
+
+
+.news-item
+{
+    padding:4px 4px;
+    margin: 0px 20px;
+    border-bottom:1px dotted #555;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.glyphicon
+{
+    margin-right:4px !important; /*override*/
+}
+
+.pagination .glyphicon
+{
+    margin-right:0px !important; /*override*/
+}
+
+.pagination a
+{
+    color:#555;
+}
+
+.round-sec{
+padding-top: 50px;
+padding-bottom: 30px;
+}
+
+
+.round-img img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 1.5px solid #021a40;
+    padding: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+  }
+
+.round-img:hover{
+  transition-duration: 0.3s;
+  transform: translateY(-5px);
+}
+
+.page-heading{
+  font-size: 2.1rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+footer{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #050505;
+}
+
+.contact-page-top{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.about{
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+.about-image{
+border: 5px solid rgba(28,110,164,0.87);
+border-radius: 15px 15px 15px 15px;
+}
+.text-div{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
