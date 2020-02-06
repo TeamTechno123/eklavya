@@ -33,6 +33,128 @@ class Website extends CI_Controller {
 	  $this->load->view('Website/chairman_desk');
 		 $this->load->view('Include/footer');
 	}
+	public function administrative()
+	{
+		 $this->load->view('Include/header');
+	  $this->load->view('Website/administrative');
+		 $this->load->view('Include/footer');
+	}
+	public function gallery()
+	{
+		 $this->load->view('Include/header');
+	  $this->load->view('Website/gallery');
+		 $this->load->view('Include/footer');
+	}
+	public function teaching()
+	{
+		 $this->load->view('Include/header');
+	  $this->load->view('Website/teaching');
+		 $this->load->view('Include/footer');
+	}
+	public function principal()
+	{
+		 $this->load->view('Include/header');
+	  $this->load->view('Website/principal');
+		 $this->load->view('Include/footer');
+	}
+	public function non_teaching()
+	{
+		 $this->load->view('Include/header');
+	  $this->load->view('Website/non_teaching');
+		 $this->load->view('Include/footer');
+	}
+	public function secretery()
+	{
+		 $this->load->view('Include/header');
+	  $this->load->view('Website/secretary');
+		 $this->load->view('Include/footer');
+	}
+	public function school_achivement()
+	{
+		 $this->load->view('Include/header');
+	  $this->load->view('Website/school_achivements');
+		 $this->load->view('Include/footer');
+	}
+	public function teacher_achivement()
+	{
+		 $this->load->view('Include/header');
+	  $this->load->view('Website/teacher_achievements');
+		 $this->load->view('Include/footer');
+	}
+	public function student_achivement()
+	{
+		 $this->load->view('Include/header');
+	  $this->load->view('Website/student_achievements');
+		 $this->load->view('Include/footer');
+	}
+	public function chairman_achivement()
+	{
+		 $this->load->view('Include/header');
+	  $this->load->view('Website/chairman_achievements');
+		 $this->load->view('Include/footer');
+	}
+	public function teaching_staff()
+	{
+		 $this->load->view('Include/header');
+	  $this->load->view('Website/teaching_staff');
+		 $this->load->view('Include/footer');
+	}
+	public function nonteaching_staff()
+	{
+		 $this->load->view('Include/header');
+		$this->load->view('Website/nonteaching_staff');
+		 $this->load->view('Include/footer');
+	}
+	public function cbsc_circulars()
+	{
+		 $this->load->view('Include/header');
+		$this->load->view('Website/cbsc_circulars');
+		 $this->load->view('Include/footer');
+	}
+	public function cbsc_notification()
+	{
+		 $this->load->view('Include/header');
+		$this->load->view('Website/cbsc_notification');
+		 $this->load->view('Include/footer');
+	}
+	public function annual_calender()
+	{
+		 $this->load->view('Include/header');
+		$this->load->view('Website/annual_calender');
+		 $this->load->view('Include/footer');
+	}
+	public function registration_form()
+	{
+		 $this->load->view('Include/header');
+		$this->load->view('Website/registration_form');
+		 $this->load->view('Include/footer');
+	}
+	public function fee_details()
+	{
+		 $this->load->view('Include/header');
+		$this->load->view('Website/fee_details');
+		 $this->load->view('Include/footer');
+	}
+
+	public function documents()
+	{
+		 $this->load->view('Include/header');
+		$this->load->view('Website/documents');
+		 $this->load->view('Include/footer');
+	}
+	public function announcement()
+	{
+		 $this->load->view('Include/header');
+		$this->load->view('Website/announcement');
+		 $this->load->view('Include/footer');
+	}
+	public function compitition()
+	{
+		 $this->load->view('Include/header');
+		$this->load->view('Website/compitition');
+		 $this->load->view('Include/footer');
+	}
+
 	public function contact()
 	{
 		 $this->load->view('Include/header');

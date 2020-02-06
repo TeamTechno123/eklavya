@@ -9,7 +9,7 @@
       <div class="col-md-6">
         <div class="mail-contact">
           <div class="form contact-form">
-            <h4>Let's talk Business</h4>
+            <h4>Let's Connect</h4>
                 <div id="errormessage"></div>
                   <form action="<?php echo base_url();?>Welcome/send_mail" method="post"  role="form" class="contactForm">
                     <div class="form-group">
@@ -40,13 +40,16 @@
       </div>
       <div class="col-md-6">
         <h4>Contact Us</h4>
-        <p> <b class="big-text">Head Office :</b> Plot No: P-83, 2nd Floor, Near Maha E-Seva Kendra, M.I.D.C. Gokul Shirgaon, Kolhapur, Maharashtra, India -(416234)</p>
-        <p> <b  class="big-text">Branch Office :</b> #811,  Techno Plaza , Indiranagar, Bengaluru, Karnataka 560038</p>
-        <!-- <p class="theme-color"></p> -->
-        <p> <b  class="big-text">Phone : </b> +91 968 967 2626, 968 958 2626, 952 700 1144</p>
-        <p> <b  class="big-text">Email : </b> <span class="theme-color">info@technothinksup.com, sales@technothinksup.com</span> </p>
+        <p> <b class="big-text">Address :</b> Waghbeel, Panhala, Rakshi, Maharashtra 416201</p>
+
+        <p> <b  class="big-text">Phone : </b> +91 98813 09940</p>
+        <p> <b  class="big-text">Email : </b> <span class="theme-color">info@eklavyapublicschool.com</span> </p>
        <p class="center"> <a class="social" href="#"><i class="fab fa-facebook-f social"></i></a>   &nbsp; <a class="social" href="#"><i class="fab fa-twitter"></i></a> &nbsp;
          <a class="social" href="#"><i class="fab fa-linkedin-in"></i></a> &nbsp; <a class="social" href="#"><i class="fab fa-instagram"></i></a>  </p>
+
+         <div class="map-div mb-4">
+           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6423.832820450353!2d74.14315860327665!3d16.794882789855556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc1a93d49b020c9%3A0x94dcf87a9baf829a!2sEklavya%20Public%20School!5e0!3m2!1sen!2sin!4v1580626417341!5m2!1sen!2sin" width="600" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+         </div>
       </div>
     </div>
   </div>

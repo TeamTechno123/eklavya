@@ -2,7 +2,7 @@
 <footer>
 <div class="container">
   <div class="row text-center">
-    <p class="text-white text-center w-100 mb-0">Copyright © Central Board of Secondary Education</p>
+    <p class="text-white text-center w-100 mb-0">Copyright © Eklavya Public School</p>
   </div>
 </div>
 </footer>
