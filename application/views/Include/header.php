@@ -22,13 +22,13 @@
     <section class="top-nav">
       <div class="container">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-2">
             <img class="cbsc-logo" src="<?php echo base_url(); ?>assets/images/school_logo.png" width="100%" alt="">
           </div>
-          <div class="col-md-6 align-middle">
+          <div class="col-md-8 align-middle">
               <h1 class="heading-big text-white text-center">EKLAVYA PUBLIC SCHOOL</h1>
           </div>
-          <div class="col-md-3 text-center ">
+          <div class="col-md-2 text-center ">
             <img class="cbsc-logo text-center" src="<?php echo base_url(); ?>assets/images/cbsc_logo.png" width="100%" alt="">
           </div>
         </div>
@@ -63,7 +63,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="<?php echo base_url(); ?>Website/school_achivement">School Achivement</a>
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/chairman_achivement">Chairman Achivement</a>
+          <!-- <a class="dropdown-item" href="<?php echo base_url(); ?>Website/chairman_achivement">Chairman Achivement</a> -->
           <a class="dropdown-item" href="<?php echo base_url(); ?>Website/teacher_achivement">Teacher Achivement</a>
           <a class="dropdown-item" href="<?php echo base_url(); ?>Website/student_achivement">Student Achivement</a>
         </div>
