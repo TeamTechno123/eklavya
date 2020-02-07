@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -17,7 +14,6 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
     <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -42,20 +38,33 @@
                     <input type="text" class="form-control required" name="gallery_title" id="gallery_title" value="<?php if(isset($gallery_title)){ echo $gallery_title; } ?>" placeholder="Gallery Title" required>
                   </div>
                   <div class="form-group col-md-6">
-                    </div>
-                <div class="form-group text-right col-md-6">
-                    <button type="button"  id="add_row" class="btn btn-sm btn-primary px-4">Add More </button>
-                </div>
+                  </div>
+                  <div class="form-group text-right col-md-6">
+                      <button type="button"  id="add_row" class="btn btn-sm btn-primary px-4">Add More </button>
+                  </div>
                   <table id="myTable" class="table table-bordered mb-4 tbl_cust1">
-                  <tr>
-                    <td>
-                      <div class="form-group col-md-12">
-                        <input type="file" name="gallery_photo_name[]" id="gallery_photo_name" class="form-control form-control-sm" id="exampleInputFile">
-                      </div>
-                    </td>
-                    <td width="80">
-                    </td>
-                    </tr>
+                    <?php if(isset($update)){
+                      foreach ($gallery_photo_list as $list) { ?>
+                      <tr>
+                        <td>
+                          <div class="form-group col-md-12">
+                            <img width="40%" src="<?php echo base_url(); ?>assets/images/gallery/<?php echo $list->gallery_photo_name; ?>"  alt="">
+
+                          </div>
+                        </td>
+                        <td width="80"><a class="rem_img" gallery_photo_name="<?php echo $list->gallery_photo_name; ?>" gallery_photo_id="<?php echo $list->gallery_photo_id; ?>" ><i class="fa fa-trash text-danger"></i></a></td>
+                      </tr>
+                    <?php } } else{ ?>
+                      <tr>
+                        <td>
+                          <div class="form-group col-md-12">
+                            <input type="file" name="gallery_photo_name[]" id="gallery_photo_name" class="form-control form-control-sm" id="exampleInputFile">
+                          </div>
+                        </td>
+                        <td width="80"></td>
+                      </tr>
+                    <?php } ?>
+
                   </table>
                   <div class="form-group col-md-6">
                   <div class="form-check">
@@ -83,33 +92,52 @@
               </form>
             </div>
           </div>
-          <!--/.col (left) -->
-          <!-- right column -->
-          <!--/.col (right) -->
         </div>
-        <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
   </div>
 
-  <script type="text/javascript">
-  var i=0;
-  $('#add_row').click(function(){
- i++;
- var row = '<tr>'+
+
+</body>
+</html>
+
+<script type="text/javascript">
+// $(document).ready(function(){
+//   $('#add_row').prop('readonly',true);
+// });
+
+var i=0;
+$('#add_row').click(function(){
+  i++;
+  var row = '<tr>'+
            '<td>'+
              '<div class="form-group col-md-12">'+
                  '<input type="file" name="gallery_photo_name[]" id="gallery_photo_name" class="form-control form-control-sm" id="exampleInputFile">'+
                '</div>'+
            '</td>'+
-            '<td><a><i class="fa fa-trash text-danger"></i></a></td>'+
+            '<td><a><i class="fa fa-trash text-danger rem_row"></i></a></td>'+
          '</tr>';
- $('#myTable').append(row);
+  $('#myTable').append(row);
  });
 
- $('#myTable').on('click', 'a', function () {
-    $(this).closest('tr').remove();
+ $('#myTable').on('click', '.rem_row', function () {
+  $(this).closest('tr').remove();
+ });
+
+  $('#myTable').on('click', '.rem_img', function () {
+
+    var gallery_photo_name = $(this).attr('gallery_photo_name');
+    var gallery_photo_id = $(this).attr('gallery_photo_id');
+    // alert(gallery_photo_name);
+    $.ajax({
+      url: '<?php echo base_url(); ?>Admin/delete_gallery_photo',
+      method:'post',
+      data:{ 'gallery_photo_name':gallery_photo_name,
+             'gallery_photo_id':gallery_photo_id, },
+      context: this,
+      success:function(){
+        $(this).closest('tr').remove();
+      }
+    });
   });
-  </script>
-</body>
-</html>
+</script>

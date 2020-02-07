@@ -321,6 +321,8 @@ class Admin extends CI_Controller{
                'announcement_image' => $image_name.'.'.$ext,
              );
              $this->Admin_Model->update_info('announcement_id', $announcement_id, 'announcement', $up_image);
+             $img_old = $this->input->post('img_old');
+             unlink("assets/images/announcement/".$img_old);
            }
            else{
           echo   $error = $this->upload->display_errors();
@@ -354,33 +356,11 @@ class Admin extends CI_Controller{
     public function delete_announcement($announcement_id){
       $ek_admin_id = $this->session->userdata('ek_admin_id');
       if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
+
       $this->Admin_Model->delete_info('announcement_id', $announcement_id, 'announcement');
       $this->session->set_flashdata('delete_success','success');
       header('location:'.base_url().'Admin/announcement_list');
-      }
-
-    // public function gallery_list(){
-    //   $ek_admin_id = $this->session->userdata('ek_admin_id');
-    //   if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
-    //   $this->load->view('Admin/head');
-    //   $this->load->view('Admin/navbar');
-    //   $this->load->view('Admin/sidebar');
-    //   $this->load->view('Admin/gallery_list');
-    //   $this->load->view('Admin/script');
-    //   $this->load->view('Admin/footer');
-    // }
-    //
-    // public function gallery(){
-    //   $ek_admin_id = $this->session->userdata('ek_admin_id');
-    //   if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
-    //   $this->load->view('Admin/head');
-    //   $this->load->view('Admin/navbar');
-    //   $this->load->view('Admin/sidebar');
-    //   $this->load->view('Admin/gallery');
-    //   $this->load->view('Admin/script');
-    //   $this->load->view('Admin/footer');
-    // }
-
+    }
 
     public function gallery_list(){
       $ek_admin_id = $this->session->userdata('ek_admin_id');
@@ -400,54 +380,48 @@ class Admin extends CI_Controller{
       $this->form_validation->set_rules('gallery_title', 'Slider Title', 'trim|required');
       if ($this->form_validation->run() != FALSE) {
         $gallery_status=$this->input->post('gallery_status');
-    if(!isset($gallery_status)){ $gallery_status = '1'; }
-    $save_data = array(
-      'gallery_no' => $this->input->post('gallery_no'),
-      'gallery_date' => $this->input->post('gallery_date'),
-      'gallery_title' => $this->input->post('gallery_title'),
-      'gallery_status' => $gallery_status,
-    );
-    $gallery_id=$this->Admin_Model->save_data('gallery', $save_data);
+        if(!isset($gallery_status)){ $gallery_status = '1'; }
+        $save_data = array(
+          'gallery_no' => $this->input->post('gallery_no'),
+          'gallery_date' => $this->input->post('gallery_date'),
+          'gallery_title' => $this->input->post('gallery_title'),
+          'gallery_status' => $gallery_status,
+        );
+        $gallery_id=$this->Admin_Model->save_data('gallery', $save_data);
 
-    if(isset($_FILES['gallery_photo_name']['name'])){
-      $files = $_FILES;
-      $cpt = count($_FILES['gallery_photo_name']['name']);
-      for ($i=0; $i < $cpt; $i++) {
-        // $gallery_photo_id = $_POST['gallery_photo_id'][$i];
-        $j = $i+1;
-        $time = time();
-        $image_name = 'gallery_photo_'.$gallery_id.'_'.$j.'_'.$time;
-        $_FILES['gallery_photo_name']['name']= $files['gallery_photo_name']['name'][$i];
-        $_FILES['gallery_photo_name']['type']= $files['gallery_photo_name']['type'][$i];
-        $_FILES['gallery_photo_name']['tmp_name']= $files['gallery_photo_name']['tmp_name'][$i];
-        $_FILES['gallery_photo_name']['error']= $files['gallery_photo_name']['error'][$i];
-        $_FILES['gallery_photo_name']['size']= $files['gallery_photo_name']['size'][$i];
-        $config2['upload_path'] = 'assets/images/gallery/';
-        $config2['allowed_types'] = 'jpg|png';
-        $config2['file_name'] = $image_name;
-        $config2['overwrite']     = FALSE;
-        $filename = $files['gallery_photo_name']['name'][$i];
-        $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        $this->upload->initialize($config2);
-        if($this->upload->do_upload('gallery_photo_name')){
-          $file_data['gallery_id'] = $gallery_id;
-          $file_data['gallery_photo_name'] = $image_name.'.'.$ext;
-          // if($gallery_photo_id == ''){
-            $this->Admin_Model->save_data('gallery_photo', $file_data);
-          // } else{
-          //   $this->Admin_Model->update_info('gallery_photo_id', $gallery_photo_id, 'gallery_photo', $file_data);
-          // }
+        if(isset($_FILES['gallery_photo_name']['name'])){
+          $files = $_FILES;
+          $cpt = count($_FILES['gallery_photo_name']['name']);
+          for ($i=0; $i < $cpt; $i++) {
+            $j = $i+1;
+            $time = time();
+            $image_name = 'gallery_photo_'.$gallery_id.'_'.$j.'_'.$time;
+            $_FILES['gallery_photo_name']['name']= $files['gallery_photo_name']['name'][$i];
+            $_FILES['gallery_photo_name']['type']= $files['gallery_photo_name']['type'][$i];
+            $_FILES['gallery_photo_name']['tmp_name']= $files['gallery_photo_name']['tmp_name'][$i];
+            $_FILES['gallery_photo_name']['error']= $files['gallery_photo_name']['error'][$i];
+            $_FILES['gallery_photo_name']['size']= $files['gallery_photo_name']['size'][$i];
+            $config2['upload_path'] = 'assets/images/gallery/';
+            $config2['allowed_types'] = 'jpg|png';
+            $config2['file_name'] = $image_name;
+            $config2['overwrite']     = FALSE;
+            $filename = $files['gallery_photo_name']['name'][$i];
+            $ext = pathinfo($filename, PATHINFO_EXTENSION);
+            $this->upload->initialize($config2);
+            if($this->upload->do_upload('gallery_photo_name')){
+              $file_data['gallery_id'] = $gallery_id;
+              $file_data['gallery_photo_name'] = $image_name.'.'.$ext;
+              $this->Admin_Model->save_data('gallery_photo', $file_data);
+            }
+            else{
+              $error = $this->upload->display_errors();
+              $this->session->set_flashdata('status',$this->upload->display_errors());
+            }
+          }
         }
-        else{
-          $error = $this->upload->display_errors();
-          $this->session->set_flashdata('status',$this->upload->display_errors());
-          // echo $error;
-        }
+        $this->session->set_flashdata('save_success','success');
+        header('location:'.base_url().'Admin/gallery_list');
       }
-    }
-    $this->session->set_flashdata('save_success','success');
-    header('location:'.base_url().'Admin/gallery_list');
-    }
       $this->load->view('Admin/head');
       $this->load->view('Admin/navbar');
       $this->load->view('Admin/sidebar');
@@ -456,7 +430,7 @@ class Admin extends CI_Controller{
       $this->load->view('Admin/footer');
     }
 
-
+    // Edit Gallery...
     public function edit_gallery($gallery_id){
       $ek_admin_id = $this->session->userdata('ek_admin_id');
       if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
@@ -465,60 +439,75 @@ class Admin extends CI_Controller{
       if ($this->form_validation->run() != FALSE) {
 
         $gallery_status=$this->input->post('gallery_status');
-          if(!isset($gallery_status)){ $gallery_status = '1'; }
-
-            $update_data = array(
-                'gallery_no' => $this->input->post('gallery_no'),
-                'gallery_date' => $this->input->post('gallery_date'),
-                'gallery_title' => $this->input->post('gallery_title'),
-                'gallery_status' => $gallery_status,
-
-              );
+        if(!isset($gallery_status)){ $gallery_status = '1'; }
+        $update_data = array(
+          'gallery_no' => $this->input->post('gallery_no'),
+          'gallery_date' => $this->input->post('gallery_date'),
+          'gallery_title' => $this->input->post('gallery_title'),
+          'gallery_status' => $gallery_status,
+        );
         $this->Admin_Model->update_info('gallery_id', $gallery_id, 'gallery', $update_data);
 
-        // if(isset($_FILES['gallery_image']['name'])){
-        //    $time = time();
-        //    $image_name = 'gallery_'.$gallery_id.'_'.$time;
-        //    $config['upload_path'] = 'assets/images/gallery/';
-        //    $config['allowed_types'] = 'png|jpg';
-        //    $config['file_name'] = $image_name;
-        //    $filename = $_FILES['gallery_image']['name'];
-        //    $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        //    // $this->load->library('upload', $config);
-        //    $this->upload->initialize($config);
-        //    if ($this->upload->do_upload('gallery_image')){
-        //      $up_image = array(
-        //        'gallery_image' => $image_name.'.'.$ext,
-        //      );
-        //      $this->Admin_Model->update_info('gallery_id', $gallery_id, 'gallery', $up_image);
-        //    }
-        //    else{
-        //   echo   $error = $this->upload->display_errors();
-        //      $this->session->set_flashdata('status',$this->upload->display_errors());
-        //    }
-        //  }
-
-          $this->session->set_flashdata('update_success','success');
-          header('location:'.base_url().'Admin/gallery_list');
+        if(isset($_FILES['gallery_photo_name']['name'])){
+          $files = $_FILES;
+          $cpt = count($_FILES['gallery_photo_name']['name']);
+          for ($i=0; $i < $cpt; $i++) {
+            $j = $i+1;
+            $time = time();
+            $image_name = 'gallery_photo_'.$gallery_id.'_'.$j.'_'.$time;
+            $_FILES['gallery_photo_name']['name']= $files['gallery_photo_name']['name'][$i];
+            $_FILES['gallery_photo_name']['type']= $files['gallery_photo_name']['type'][$i];
+            $_FILES['gallery_photo_name']['tmp_name']= $files['gallery_photo_name']['tmp_name'][$i];
+            $_FILES['gallery_photo_name']['error']= $files['gallery_photo_name']['error'][$i];
+            $_FILES['gallery_photo_name']['size']= $files['gallery_photo_name']['size'][$i];
+            $config2['upload_path'] = 'assets/images/gallery/';
+            $config2['allowed_types'] = 'jpg|png';
+            $config2['file_name'] = $image_name;
+            $config2['overwrite']     = FALSE;
+            $filename = $files['gallery_photo_name']['name'][$i];
+            $ext = pathinfo($filename, PATHINFO_EXTENSION);
+            $this->upload->initialize($config2);
+            if($this->upload->do_upload('gallery_photo_name')){
+              $file_data['gallery_id'] = $gallery_id;
+              $file_data['gallery_photo_name'] = $image_name.'.'.$ext;
+              $this->Admin_Model->save_data('gallery_photo', $file_data);
+            }
+            else{
+              $error = $this->upload->display_errors();
+              $this->session->set_flashdata('status',$this->upload->display_errors());
+            }
+          }
         }
 
-            $gallery_info = $this->Admin_Model->get_info('gallery_id', $gallery_id, 'gallery');
-            if($gallery_info == ''){ header('location:'.base_url().'Admin/gallery_list'); }
-            foreach($gallery_info as $info_b){
-              $data['update'] = 'update';
-              $data['gallery_no'] = $info_b->gallery_no;
-              $data['gallery_date'] = $info_b->gallery_date;
-              $data['gallery_title'] = $info_b->gallery_title;
-              $data['gallery_status'] = $info_b->gallery_status;
+        $this->session->set_flashdata('update_success','success');
+        header('location:'.base_url().'Admin/gallery_list');
+      }
 
-              // $data['gallery_image'] = $info_b->gallery_image;
-            }
-            $this->load->view('Admin/head',$data);
-            $this->load->view('Admin/navbar',$data);
-            $this->load->view('Admin/sidebar',$data);
-            $this->load->view('Admin/gallery',$data);
-            $this->load->view('Admin/script',$data);
-            $this->load->view('Admin/footer',$data);
+      $gallery_info = $this->Admin_Model->get_info('gallery_id', $gallery_id, 'gallery');
+      if($gallery_info == ''){ header('location:'.base_url().'Admin/gallery_list'); }
+      foreach($gallery_info as $info_b){
+        $data['update'] = 'update';
+        $data['gallery_no'] = $info_b->gallery_no;
+        $data['gallery_date'] = $info_b->gallery_date;
+        $data['gallery_title'] = $info_b->gallery_title;
+        $data['gallery_status'] = $info_b->gallery_status;
+      }
+
+      $data['gallery_photo_list'] = $this->Admin_Model->get_list_by_id('gallery_id',$gallery_id,'','','gallery_photo');
+      $this->load->view('Admin/head',$data);
+      $this->load->view('Admin/navbar',$data);
+      $this->load->view('Admin/sidebar',$data);
+      $this->load->view('Admin/gallery',$data);
+      $this->load->view('Admin/script',$data);
+      $this->load->view('Admin/footer',$data);
+    }
+
+    public function delete_gallery_photo(){
+      $gallery_photo_name = $this->input->post('gallery_photo_name');
+      $gallery_photo_id = $this->input->post('gallery_photo_id');
+
+      unlink("assets/images/gallery/".$gallery_photo_name);
+      $this->Admin_Model->delete_info('gallery_photo_id', $gallery_photo_id, 'gallery_photo');
     }
 
     public function delete_gallery($gallery_id){
@@ -616,6 +605,8 @@ class Admin extends CI_Controller{
                'slider_img' => $image_name.'.'.$ext,
              );
              $this->Admin_Model->update_info('slider_id', $slider_id, 'slider', $up_image);
+             $img_old = $this->input->post('img_old');
+             unlink("assets/images/slider/".$img_old);
            }
            else{
           echo   $error = $this->upload->display_errors();
