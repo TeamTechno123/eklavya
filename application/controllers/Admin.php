@@ -359,27 +359,7 @@ class Admin extends CI_Controller{
       header('location:'.base_url().'Admin/announcement_list');
       }
 
-    // public function gallery_list(){
-    //   $ek_admin_id = $this->session->userdata('ek_admin_id');
-    //   if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
-    //   $this->load->view('Admin/head');
-    //   $this->load->view('Admin/navbar');
-    //   $this->load->view('Admin/sidebar');
-    //   $this->load->view('Admin/gallery_list');
-    //   $this->load->view('Admin/script');
-    //   $this->load->view('Admin/footer');
-    // }
-    //
-    // public function gallery(){
-    //   $ek_admin_id = $this->session->userdata('ek_admin_id');
-    //   if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
-    //   $this->load->view('Admin/head');
-    //   $this->load->view('Admin/navbar');
-    //   $this->load->view('Admin/sidebar');
-    //   $this->load->view('Admin/gallery');
-    //   $this->load->view('Admin/script');
-    //   $this->load->view('Admin/footer');
-    // }
+
 
 
     public function gallery_list(){
@@ -649,6 +629,28 @@ class Admin extends CI_Controller{
       $this->Admin_Model->delete_info('slider_id', $slider_id, 'slider');
       $this->session->set_flashdata('delete_success','success');
       header('location:'.base_url().'Admin/slider_list');
+      }
+
+      public function notification_list(){
+        $ek_admin_id = $this->session->userdata('ek_admin_id');
+        if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
+        $this->load->view('Admin/head');
+        $this->load->view('Admin/navbar');
+        $this->load->view('Admin/sidebar');
+        $this->load->view('Admin/notification_list');
+        $this->load->view('Admin/script');
+        $this->load->view('Admin/footer');
+      }
+
+      public function notification(){
+        $ek_admin_id = $this->session->userdata('ek_admin_id');
+        if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
+        $this->load->view('Admin/head');
+        $this->load->view('Admin/navbar');
+        $this->load->view('Admin/sidebar');
+        $this->load->view('Admin/notification');
+        $this->load->view('Admin/script');
+        $this->load->view('Admin/footer');
       }
 
 

@@ -62,7 +62,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="<?php echo base_url(); ?>Website/school_achivement">School Achivement</a>
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/chairman_achivement">Chairman Achivement</a>
+          <!-- <a class="dropdown-item" href="<?php echo base_url(); ?>Website/chairman_achivement">Chairman Achivement</a> -->
           <a class="dropdown-item" href="<?php echo base_url(); ?>Website/teacher_achivement">Teacher Achivement</a>
           <a class="dropdown-item" href="<?php echo base_url(); ?>Website/student_achivement">Student Achivement</a>
         </div>
@@ -97,6 +97,9 @@
           <a class="dropdown-item" href="<?php echo base_url(); ?>Website/fee_details">Fee Details</a>
           <a class="dropdown-item" href="<?php echo base_url(); ?>Website/documents">Documents</a>
         </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url(); ?>Website/compitition">Compitition</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>Website/gallery">Gallery</a>
