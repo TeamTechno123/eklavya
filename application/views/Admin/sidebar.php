@@ -72,6 +72,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url(); ?>Admin/notification_list" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>
+                Notification
+              </p>
+            </a>
+          </li>
         </ul>
       </li>
       <li class="nav-item">

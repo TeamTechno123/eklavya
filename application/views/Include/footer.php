@@ -44,3 +44,6 @@ $(".demo2").bootstrapNews({
           }
       });
 </script>
+
+</body>
+</html>

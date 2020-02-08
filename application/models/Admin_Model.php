@@ -63,5 +63,26 @@ class Admin_Model extends CI_Model{
     $result = $query->result();
     return $result;
   }
+
+
+/**********************************************************************************************/
+/*********************************           Website         **********************************/
+/**********************************************************************************************/
+
+  // public function get_slider_list(){
+  //   $this->db->select('*');
+  //   $this->db->order_by($order_col, $order);
+  // }
+
+  public function get_cbsc_notification($type){
+    $this->db->select('*');
+    $this->db->where('notification_type',$type);
+    $this->db->where('notification_status',1);
+    $this->db->order_by('notification_id', 'DESC');
+    $this->db->from('notification');
+    $query = $this->db->get();
+    $result = $query->result();
+    return $result;
+  }
 }
 ?>

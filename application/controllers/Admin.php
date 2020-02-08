@@ -202,28 +202,6 @@ class Admin extends CI_Controller{
       }
     }
 
-    // public function announcement_list(){
-    //   $ek_admin_id = $this->session->userdata('ek_admin_id');
-    //   if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
-    //   $this->load->view('Admin/head');
-    //   $this->load->view('Admin/navbar');
-    //   $this->load->view('Admin/sidebar');
-    //   $this->load->view('Admin/announcement_list');
-    //   $this->load->view('Admin/script');
-    //   $this->load->view('Admin/footer');
-    // }
-    //
-    // public function announcement(){
-    //   $ek_admin_id = $this->session->userdata('ek_admin_id');
-    //   if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
-    //   $this->load->view('Admin/head');
-    //   $this->load->view('Admin/navbar');
-    //   $this->load->view('Admin/sidebar');
-    //   $this->load->view('Admin/announcement');
-    //   $this->load->view('Admin/script');
-    //   $this->load->view('Admin/footer');
-    // }
-
     public function announcement_list(){
       $ek_admin_id = $this->session->userdata('ek_admin_id');
       if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
@@ -377,7 +355,7 @@ class Admin extends CI_Controller{
     public function gallery(){
       $ek_admin_id = $this->session->userdata('ek_admin_id');
       if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
-      $this->form_validation->set_rules('gallery_title', 'Slider Title', 'trim|required');
+      $this->form_validation->set_rules('gallery_title', 'Title', 'trim|required');
       if ($this->form_validation->run() != FALSE) {
         $gallery_status=$this->input->post('gallery_status');
         if(!isset($gallery_status)){ $gallery_status = '1'; }
@@ -434,7 +412,7 @@ class Admin extends CI_Controller{
     public function edit_gallery($gallery_id){
       $ek_admin_id = $this->session->userdata('ek_admin_id');
       if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
-      $this->form_validation->set_rules('gallery_title', 'Slider Title', 'trim|required');
+      $this->form_validation->set_rules('gallery_title', 'Title', 'trim|required');
       $data['gallery_list'] = $this->Admin_Model->get_list1('gallery_id','ASC','gallery');
       if ($this->form_validation->run() != FALSE) {
 
@@ -575,73 +553,196 @@ class Admin extends CI_Controller{
     }
 
 
-    public function edit_slider($slider_id){
-      $ek_admin_id = $this->session->userdata('ek_admin_id');
-      if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
-      $this->form_validation->set_rules('slider_title', 'Slider Title', 'trim|required');
-      $data['slider_list'] = $this->Admin_Model->get_list1('slider_id','ASC','slider');
-      if ($this->form_validation->run() != FALSE) {
+  public function edit_slider($slider_id){
+    $ek_admin_id = $this->session->userdata('ek_admin_id');
+    if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
+    $this->form_validation->set_rules('slider_title', 'Slider Title', 'trim|required');
+    $data['slider_list'] = $this->Admin_Model->get_list1('slider_id','ASC','slider');
+    if ($this->form_validation->run() != FALSE) {
+      $slider_status=$this->input->post('slider_status');
+      if(!isset($slider_status)){ $slider_status = '1'; }
+      $update_data = array(
+      'slider_title' => $this->input->post('slider_title'),
+      'slider_status' => $slider_status,
+      );
+      $this->Admin_Model->update_info('slider_id', $slider_id, 'slider', $update_data);
 
-        $slider_status=$this->input->post('slider_status');
-          if(!isset($slider_status)){ $slider_status = '1'; }
-            $update_data = array(
-                'slider_title' => $this->input->post('slider_title'),
-                'slider_status' => $slider_status,
-              );
-        $this->Admin_Model->update_info('slider_id', $slider_id, 'slider', $update_data);
-
-        if(isset($_FILES['slider_img']['name'])){
-           $time = time();
-           $image_name = 'slider_'.$slider_id.'_'.$time;
-           $config['upload_path'] = 'assets/images/slider/';
-           $config['allowed_types'] = 'png|jpg';
-           $config['file_name'] = $image_name;
-           $filename = $_FILES['slider_img']['name'];
-           $ext = pathinfo($filename, PATHINFO_EXTENSION);
-           // $this->load->library('upload', $config);
-           $this->upload->initialize($config);
-           if ($this->upload->do_upload('slider_img')){
-             $up_image = array(
-               'slider_img' => $image_name.'.'.$ext,
-             );
-             $this->Admin_Model->update_info('slider_id', $slider_id, 'slider', $up_image);
-             $img_old = $this->input->post('img_old');
-             unlink("assets/images/slider/".$img_old);
-           }
-           else{
-          echo   $error = $this->upload->display_errors();
-             $this->session->set_flashdata('status',$this->upload->display_errors());
-           }
-         }
-
-          $this->session->set_flashdata('update_success','success');
-          header('location:'.base_url().'Admin/slider_list');
+      if(isset($_FILES['slider_img']['name'])){
+        $time = time();
+        $image_name = 'slider_'.$slider_id.'_'.$time;
+        $config['upload_path'] = 'assets/images/slider/';
+        $config['allowed_types'] = 'png|jpg';
+        $config['file_name'] = $image_name;
+        $filename = $_FILES['slider_img']['name'];
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        // $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        if ($this->upload->do_upload('slider_img')){
+          $up_image = array(
+            'slider_img' => $image_name.'.'.$ext,
+          );
+          $this->Admin_Model->update_info('slider_id', $slider_id, 'slider', $up_image);
+          $img_old = $this->input->post('img_old');
+          unlink("assets/images/slider/".$img_old);
         }
-
-            $slider_info = $this->Admin_Model->get_info('slider_id', $slider_id, 'slider');
-            if($slider_info == ''){ header('location:'.base_url().'Admin/slider_list'); }
-            foreach($slider_info as $info_b){
-              $data['update'] = 'update';
-              $data['slider_title'] = $info_b->slider_title;
-              $data['slider_status'] = $info_b->slider_status;
-              $data['slider_img'] = $info_b->slider_img;
-            }
-            $this->load->view('Admin/head',$data);
-            $this->load->view('Admin/navbar',$data);
-            $this->load->view('Admin/sidebar',$data);
-            $this->load->view('Admin/slider',$data);
-            $this->load->view('Admin/script',$data);
-            $this->load->view('Admin/footer',$data);
-}
-
-    public function delete_slider($slider_id){
-      $ek_admin_id = $this->session->userdata('ek_admin_id');
-      if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
-      $this->Admin_Model->delete_info('slider_id', $slider_id, 'slider');
-      $this->session->set_flashdata('delete_success','success');
+        else{
+          echo $error = $this->upload->display_errors();
+          $this->session->set_flashdata('status',$this->upload->display_errors());
+        }
+      }
+      $this->session->set_flashdata('update_success','success');
       header('location:'.base_url().'Admin/slider_list');
+    }
+    // Edit Info...
+    $slider_info = $this->Admin_Model->get_info('slider_id', $slider_id, 'slider');
+    if($slider_info == ''){ header('location:'.base_url().'Admin/slider_list'); }
+    foreach($slider_info as $info_b){
+    $data['update'] = 'update';
+    $data['slider_title'] = $info_b->slider_title;
+    $data['slider_status'] = $info_b->slider_status;
+    $data['slider_img'] = $info_b->slider_img;
+    }
+    $this->load->view('Admin/head',$data);
+    $this->load->view('Admin/navbar',$data);
+    $this->load->view('Admin/sidebar',$data);
+    $this->load->view('Admin/slider',$data);
+    $this->load->view('Admin/script',$data);
+    $this->load->view('Admin/footer',$data);
+  }
+
+  public function delete_slider($slider_id){
+    $ek_admin_id = $this->session->userdata('ek_admin_id');
+    if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
+    $this->Admin_Model->delete_info('slider_id', $slider_id, 'slider');
+    $this->session->set_flashdata('delete_success','success');
+    header('location:'.base_url().'Admin/slider_list');
+  }
+
+  public function notification_list(){
+    $ek_admin_id = $this->session->userdata('ek_admin_id');
+    if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
+    $data['notification_list'] = $this->Admin_Model->get_list1('notification_id','DESC','notification');
+    $this->load->view('Admin/head',$data);
+    $this->load->view('Admin/navbar',$data);
+    $this->load->view('Admin/sidebar',$data);
+    $this->load->view('Admin/notification_list',$data);
+    $this->load->view('Admin/script',$data);
+    $this->load->view('Admin/footer',$data);
+  }
+
+  public function notification(){
+    $ek_admin_id = $this->session->userdata('ek_admin_id');
+    if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
+    $this->form_validation->set_rules('notification_title', 'Title', 'trim|required');
+    if ($this->form_validation->run() != FALSE) {
+
+      $notification_status = $this->input->post('notification_status');
+      if(!isset($notification_status)){ $notification_status = '1'; }
+
+      $save_data = array(
+        'notification_no' => $this->input->post('notification_no'),
+        'notification_date' => $this->input->post('notification_date'),
+        'notification_type' => $this->input->post('notification_type'),
+        'notification_title' => $this->input->post('notification_title'),
+        'notification_status' => $notification_status,
+      );
+      $notification_id = $this->Admin_Model->save_data('notification', $save_data);
+
+      if(isset($_FILES['notification_image']['name'])){
+        $time = time();
+        $image_name = 'notification_'.$notification_id.'_'.$time;
+        $config['upload_path'] = 'assets/images/notification/';
+        $config['allowed_types'] = 'png|jpg';
+        $config['file_name'] = $image_name;
+        $filename = $_FILES['notification_image']['name'];
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        $this->upload->initialize($config);
+        if ($this->upload->do_upload('notification_image')){
+          $up_image = array(
+          'notification_image' => $image_name.'.'.$ext,
+          );
+          $this->Admin_Model->update_info('notification_id', $notification_id, 'notification', $up_image);
+        }
+        else{
+          echo $error = $this->upload->display_errors();
+          $this->session->set_flashdata('status',$this->upload->display_errors());
+        }
+      }
+      $this->session->set_flashdata('save_success','success');
+      header('location:'.base_url().'Admin/notification_list');
+    }
+    $this->load->view('Admin/head');
+    $this->load->view('Admin/navbar');
+    $this->load->view('Admin/sidebar');
+    $this->load->view('Admin/notification');
+    $this->load->view('Admin/script');
+    $this->load->view('Admin/footer');
+  }
+
+  public function edit_notification($notification_id){
+    $ek_admin_id = $this->session->userdata('ek_admin_id');
+    if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
+
+    $this->form_validation->set_rules('notification_title', 'Title', 'trim|required');
+    if ($this->form_validation->run() != FALSE) {
+
+      $notification_status = $this->input->post('notification_status');
+      if(!isset($notification_status)){ $notification_status = '1'; }
+
+      $update_data = array(
+        'notification_no' => $this->input->post('notification_no'),
+        'notification_date' => $this->input->post('notification_date'),
+        'notification_type' => $this->input->post('notification_type'),
+        'notification_title' => $this->input->post('notification_title'),
+        'notification_status' => $notification_status,
+      );
+      $this->Admin_Model->update_info('notification_id', $notification_id, 'notification', $update_data);
+
+      if(isset($_FILES['notification_image']['name'])){
+         $time = time();
+         $image_name = 'notification_'.$notification_id.'_'.$time;
+         $config['upload_path'] = 'assets/images/notification/';
+         $config['allowed_types'] = 'png|jpg';
+         $config['file_name'] = $image_name;
+         $filename = $_FILES['notification_image']['name'];
+         $ext = pathinfo($filename, PATHINFO_EXTENSION);
+         $this->upload->initialize($config);
+         if ($this->upload->do_upload('notification_image')){
+           $up_image = array(
+             'notification_image' => $image_name.'.'.$ext,
+           );
+           $this->Admin_Model->update_info('notification_id', $notification_id, 'notification', $up_image);
+           $img_old = $this->input->post('img_old');
+           unlink("assets/images/notification/".$img_old);
+         }
+         else{
+           echo $error = $this->upload->display_errors();
+           $this->session->set_flashdata('status',$this->upload->display_errors());
+         }
+       }
+
+        $this->session->set_flashdata('update_success','success');
+        header('location:'.base_url().'Admin/notification_list');
       }
 
+      $notification_info = $this->Admin_Model->get_info('notification_id', $notification_id, 'notification');
+      if($notification_info == ''){ header('location:'.base_url().'Admin/notification_list'); }
+      foreach($notification_info as $info_b){
+        $data['update'] = 'update';
+        $data['notification_no'] = $info_b->notification_no;
+        $data['notification_date'] = $info_b->notification_date;
+        $data['notification_type'] = $info_b->notification_type;
+        $data['notification_title'] = $info_b->notification_title;
+        $data['notification_status'] = $info_b->notification_status;
+        $data['notification_image'] = $info_b->notification_image;
+      }
+      $this->load->view('Admin/head',$data);
+      $this->load->view('Admin/navbar',$data);
+      $this->load->view('Admin/sidebar',$data);
+      $this->load->view('Admin/notification',$data);
+      $this->load->view('Admin/script',$data);
+      $this->load->view('Admin/footer',$data);
+  }
 
 }
 ?>

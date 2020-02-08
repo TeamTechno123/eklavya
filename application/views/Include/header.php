@@ -6,6 +6,7 @@
     <title>Eklavya Public School</title>
       <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
       <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/website.css">
+      <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/ihover.min.css">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" >
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
       <script src="<?php echo base_url(); ?>assets/css/jquery.bootstrap.newsbox.min.js" type="text/javascript"></script>
@@ -103,7 +104,7 @@
         <a class="nav-link" href="<?php echo base_url(); ?>Website/compitition">Compitition</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url(); ?>Website/gallery">Gallery</a>
+        <a class="nav-link" href="<?php echo base_url(); ?>Gallery">Gallery</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>Website/announcement">Announcements</a>
