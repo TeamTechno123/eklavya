@@ -11,7 +11,7 @@
           <div class="form contact-form">
             <h4>Let's Connect</h4>
                 <div id="errormessage"></div>
-                  <form action="<?php echo base_url();?>Welcome/send_mail" method="post"  role="form" class="contactForm">
+                  <form action="<?php echo base_url();?>Website/send_mail" method="post"  role="form" class="contactForm">
                     <div class="form-group">
                       <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                       <div class="validation"></div>

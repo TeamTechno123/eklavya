@@ -25,18 +25,14 @@
         <li class="nav-item">
           <a href="<?php echo base_url(); ?>Admin/dashboard" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
-            <p>
-              Dashboard
-            </p>
+            <p>Dashboard</p>
           </a>
         </li>
 
       <li class="nav-item has-treeview">
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-chart-pie"></i>
-          <p>
-            Master
-            <i class="right fas fa-angle-left"></i>
+          <p>Master<i class="right fas fa-angle-left"></i>
           </p>
         </a>
         <ul class="nav nav-treeview" style="display: none;">
@@ -51,43 +47,51 @@
           <li class="nav-item">
             <a href="<?php echo base_url(); ?>Admin/announcement_list" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>
-                Announcements
-              </p>
+              <p>Announcements</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="<?php echo base_url(); ?>Admin/gallery_list" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>
-                Gallery
-              </p>
+              <p>Gallery</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="<?php echo base_url(); ?>Admin/slider_list" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>
-                Slider
-              </p>
+              <p>Slider</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="<?php echo base_url(); ?>Admin/notification_list" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>
-                Notification
-              </p>
+              <p>Notification</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url(); ?>Admin/staff_list" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Staff</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url(); ?>Admin/achievement_list" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Achievement</p>
             </a>
           </li>
         </ul>
       </li>
       <li class="nav-item">
+        <a href="<?php echo base_url(); ?>Admin/contact_emails" class="nav-link">
+          <i class="nav-icon fas fa-list"></i>
+          <p>Enquiry Information</p>
+        </a>
+      </li>
+      <li class="nav-item">
         <a href="<?php echo base_url(); ?>Admin/logout" class="nav-link">
           <i class="nav-icon fas fa-th"></i>
-          <p>
-            Logout
-          </p>
+          <p>Logout</p>
         </a>
       </li>
     </nav>

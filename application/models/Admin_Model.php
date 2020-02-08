@@ -84,5 +84,18 @@ class Admin_Model extends CI_Model{
     $result = $query->result();
     return $result;
   }
+
+  public function get_achivement_list($type){
+    $this->db->select('*');
+    $this->db->where('achievement_type',$type);
+    $this->db->where('achievement_status',1);
+    $this->db->order_by('achievement_id', 'DESC');
+    $this->db->from('achievement');
+    $query = $this->db->get();
+    $result = $query->result();
+    return $result;
+  }
+
+
 }
 ?>

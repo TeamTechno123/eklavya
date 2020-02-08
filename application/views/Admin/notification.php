@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -21,15 +18,11 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <!-- left column -->
           <div class="col-md-8 offset-md-2">
-            <!-- general form elements -->
             <div class="card card-default">
               <div class="card-header">
                 <h3 class="card-title">Notification Information</h3>
               </div>
-              <!-- /.card-header -->
-              <!-- form start -->
               <form id="form_action" role="form" action="" method="post" enctype="multipart/form-data" autocomplete="off">
                 <div class="card-body row">
                   <div class="form-group col-md-6">
@@ -64,7 +57,6 @@
                   <input type="hidden" name="img_old" value="<?php echo $notification_image; ?>">
                   <?php } ?>
                 </div>
-                <!-- /.card-body -->
                 <div class="card-footer">
                   <?php if(isset($update)){ ?>
                     <button id="btn_update" type="submit" class="btn btn-primary">Update </button>
@@ -76,14 +68,9 @@
               </form>
             </div>
           </div>
-          <!--/.col (left) -->
-          <!-- right column -->
-          <!--/.col (right) -->
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
   </div>
-
 </body>
 </html>

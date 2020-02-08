@@ -744,5 +744,355 @@ class Admin extends CI_Controller{
       $this->load->view('Admin/footer',$data);
   }
 
+/**********************************      Achievement      ****************************/
+
+public function achievement_list(){
+  $ek_admin_id = $this->session->userdata('ek_admin_id');
+  if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
+
+  $data['achievement_list'] = $this->Admin_Model->get_list1('achievement_id','DESC','achievement');
+
+  $this->load->view('Admin/head',$data);
+  $this->load->view('Admin/navbar',$data);
+  $this->load->view('Admin/sidebar',$data);
+  $this->load->view('Admin/achievement_list',$data);
+  $this->load->view('Admin/script',$data);
+  $this->load->view('Admin/footer',$data);
+
+}
+
+public function achievement(){
+  $ek_admin_id = $this->session->userdata('ek_admin_id');
+  if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
+
+  $this->form_validation->set_rules('achievement_title', 'Title', 'trim|required');
+  if ($this->form_validation->run() != FALSE) {
+
+    $achievement_status = $this->input->post('achievement_status');
+    if(!isset($achievement_status)){ $achievement_status = '1'; }
+
+    $save_data = array(
+      'achievement_type' => $this->input->post('achievement_type'),
+      'achievement_title' => $this->input->post('achievement_title'),
+      'achievement_status' => $achievement_status,
+    );
+    $achievement_id = $this->Admin_Model->save_data('achievement', $save_data);
+
+    if(isset($_FILES['achievement_details_img']['name'])){
+      $files = $_FILES;
+      $cpt = count($_FILES['achievement_details_img']['name']);
+      for ($i=0; $i < $cpt; $i++) {
+        $j = $i+1;
+        $time = time();
+        $image_name = 'achievement_'.$achievement_id.'_'.$j.'_'.$time;
+        $_FILES['achievement_details_img']['name']= $files['achievement_details_img']['name'][$i];
+        $_FILES['achievement_details_img']['type']= $files['achievement_details_img']['type'][$i];
+        $_FILES['achievement_details_img']['tmp_name']= $files['achievement_details_img']['tmp_name'][$i];
+        $_FILES['achievement_details_img']['error']= $files['achievement_details_img']['error'][$i];
+        $_FILES['achievement_details_img']['size']= $files['achievement_details_img']['size'][$i];
+        $config2['upload_path'] = 'assets/images/achievement/';
+        $config2['allowed_types'] = 'jpg|png';
+        $config2['file_name'] = $image_name;
+        $config2['overwrite']     = FALSE;
+        $filename = $files['achievement_details_img']['name'][$i];
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        $this->upload->initialize($config2);
+        if($this->upload->do_upload('achievement_details_img')){
+          $file_data['achievement_id'] = $achievement_id;
+          $file_data['achievement_details_title'] = $_POST['achievement_details_title'][$i];
+          $file_data['achievement_details_name'] = $_POST['achievement_details_name'][$i];
+          $file_data['achievement_details_img'] = $image_name.'.'.$ext;
+          $this->Admin_Model->save_data('achievement_details', $file_data);
+        }
+        else{
+          $error = $this->upload->display_errors();
+          $this->session->set_flashdata('status',$this->upload->display_errors());
+        }
+      }
+    }
+    $this->session->set_flashdata('save_success','success');
+    header('location:'.base_url().'Admin/achievement_list');
+  }
+  $this->load->view('Admin/head');
+  $this->load->view('Admin/navbar');
+  $this->load->view('Admin/sidebar');
+  $this->load->view('Admin/achievement');
+  $this->load->view('Admin/script');
+  $this->load->view('Admin/footer');
+}
+
+public function edit_achievement($achievement_id){
+  $ek_admin_id = $this->session->userdata('ek_admin_id');
+  if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
+
+  $this->form_validation->set_rules('achievement_title', 'Title', 'trim|required');
+  if ($this->form_validation->run() != FALSE) {
+    $achievement_status = $this->input->post('achievement_status');
+    if(!isset($achievement_status)){ $achievement_status = '1'; }
+    $update_data = array(
+      'achievement_type' => $this->input->post('achievement_type'),
+      'achievement_title' => $this->input->post('achievement_title'),
+      'achievement_status' => $achievement_status,
+    );
+    $this->Admin_Model->update_info('achievement_id', $achievement_id, 'achievement', $update_data);
+
+    if(isset($_POST['achievement_details_title'])){
+      $cpt = count($_POST['achievement_details_title']);
+      for ($i=0; $i < $cpt; $i++) {
+        $j = $i+1;
+        $time = time();
+        if(isset($_POST['achievement_details_id'][$i])){
+
+          $up_det_data['achievement_details_img'] = $_POST['old_achievement_details_img'][$i];
+
+          if($_FILES['achievement_details_img']['name'][$i]){
+            $files = $_FILES;
+            $image_name = 'achievement_'.$achievement_id.'_'.$j.'_'.$time;
+            $_FILES['achievement_details_img']['name']= $files['achievement_details_img']['name'][$i];
+            $_FILES['achievement_details_img']['type']= $files['achievement_details_img']['type'][$i];
+            $_FILES['achievement_details_img']['tmp_name']= $files['achievement_details_img']['tmp_name'][$i];
+            $_FILES['achievement_details_img']['error']= $files['achievement_details_img']['error'][$i];
+            $_FILES['achievement_details_img']['size']= $files['achievement_details_img']['size'][$i];
+            $config2['upload_path'] = 'assets/images/achievement/';
+            $config2['allowed_types'] = 'jpg|png';
+            $config2['file_name'] = $image_name;
+            $config2['overwrite']     = FALSE;
+            $filename = $files['achievement_details_img']['name'][$i];
+            $ext = pathinfo($filename, PATHINFO_EXTENSION);
+            $this->upload->initialize($config2);
+            if($this->upload->do_upload('achievement_details_img')){
+              $old_achievement_details_img = $_POST['old_achievement_details_img'][$i];
+              unlink("assets/images/achievement/".$old_achievement_details_img);
+              $up_det_data['achievement_details_img'] = $image_name.'.'.$ext;
+            }
+            else{
+             $error = $this->upload->display_errors();
+             $this->session->set_flashdata('status',$this->upload->display_errors());
+            }
+          }
+          $achievement_details_id = $_POST['achievement_details_id'][$i];
+          $up_det_data['achievement_details_title'] = $_POST['achievement_details_title'][$i];
+          $up_det_data['achievement_details_name'] = $_POST['achievement_details_name'][$i];
+          $this->Admin_Model->update_info('achievement_details_id', $achievement_details_id, 'achievement_details', $up_det_data);
+        }
+        else{
+
+          $files = $_FILES;
+          $image_name = 'achievement_'.$achievement_id.'_'.$j.'_'.$time;
+          $_FILES['achievement_details_img']['name']= $files['achievement_details_img']['name'][$i];
+          $_FILES['achievement_details_img']['type']= $files['achievement_details_img']['type'][$i];
+          $_FILES['achievement_details_img']['tmp_name']= $files['achievement_details_img']['tmp_name'][$i];
+          $_FILES['achievement_details_img']['error']= $files['achievement_details_img']['error'][$i];
+          $_FILES['achievement_details_img']['size']= $files['achievement_details_img']['size'][$i];
+          $config2['upload_path'] = 'assets/images/achievement/';
+          $config2['allowed_types'] = 'jpg|png';
+          $config2['file_name'] = $image_name;
+          $config2['overwrite']     = FALSE;
+          $filename = $files['achievement_details_img']['name'][$i];
+          $ext = pathinfo($filename, PATHINFO_EXTENSION);
+          $this->upload->initialize($config2);
+          if($this->upload->do_upload('achievement_details_img')){
+           $file_data['achievement_id'] = $achievement_id;
+           $file_data['achievement_details_title'] = $_POST['achievement_details_title'][$i];
+           $file_data['achievement_details_name'] = $_POST['achievement_details_name'][$i];
+           $file_data['achievement_details_img'] = $image_name.'.'.$ext;
+           $this->Admin_Model->save_data('achievement_details', $file_data);
+          }
+          else{
+           $error = $this->upload->display_errors();
+           $this->session->set_flashdata('status',$this->upload->display_errors());
+          }
+        }
+      }
+    }
+    $this->session->set_flashdata('update_success','success');
+    header('location:'.base_url().'Admin/achievement_list');
+  }
+
+  $achievement_info = $this->Admin_Model->get_info('achievement_id', $achievement_id, 'achievement');
+  if($achievement_info == ''){ header('location:'.base_url().'Admin/achievement_list'); }
+  foreach($achievement_info as $info_b){
+    $data['update'] = 'update';
+    $data['achievement_title'] = $info_b->achievement_title;
+    $data['achievement_type'] = $info_b->achievement_type;
+    $data['achievement_status'] = $info_b->achievement_status;
+  }
+
+  $data['achievement_details_list'] = $this->Admin_Model->get_list_by_id('achievement_id',$achievement_id,'','','achievement_details');
+
+  // print_r($achievement_id);
+  $this->load->view('Admin/head',$data);
+  $this->load->view('Admin/navbar',$data);
+  $this->load->view('Admin/sidebar',$data);
+  $this->load->view('Admin/achievement',$data);
+  $this->load->view('Admin/script',$data);
+  $this->load->view('Admin/footer',$data);
+}
+
+public function delete_achievement_details(){
+  $achievement_details_img = $this->input->post('achievement_details_img');
+  $achievement_details_id = $this->input->post('achievement_details_id');
+
+  unlink("assets/images/achievement/".$achievement_details_img);
+  $this->Admin_Model->delete_info('achievement_details_id', $achievement_details_id, 'achievement_details');
+}
+
+  public function delete_achievement($achievement_id){
+    $ek_admin_id = $this->session->userdata('ek_admin_id');
+    if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
+    $this->Admin_Model->delete_info('achievement_id', $achievement_id, 'achievement');
+    $this->Admin_Model->delete_info('achievement_id', $achievement_id, 'achievement_details');
+    $this->session->set_flashdata('delete_success','success');
+    header('location:'.base_url().'Admin/achievement_list');
+  }
+
+/********************************    Staff     ***********************************/
+  public function staff_list(){
+    $ek_admin_id = $this->session->userdata('ek_admin_id');
+    if($ek_admin_id==''){  header('location:'.base_url().'Admin'); }
+
+    $data['staff_list'] = $this->Admin_Model->get_list1('staff_id','ASC','staff');
+
+    $this->load->view('Admin/head',$data);
+    $this->load->view('Admin/navbar',$data);
+    $this->load->view('Admin/sidebar',$data);
+    $this->load->view('Admin/staff_list',$data);
+    $this->load->view('Admin/script',$data);
+    $this->load->view('Admin/footer',$data);
+  }
+
+  public function staff(){
+    $ek_admin_id = $this->session->userdata('ek_admin_id');
+    if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
+
+    $this->form_validation->set_rules('staff_name', 'Title', 'trim|required');
+    if ($this->form_validation->run() != FALSE) {
+
+      $save_data = array(
+        'staff_type' => $this->input->post('staff_type'),
+        'staff_name' => $this->input->post('staff_name'),
+        'staff_qualification' => $this->input->post('staff_qualification'),
+        'staff_possition' => $this->input->post('staff_possition'),
+      );
+      $staff_id = $this->Admin_Model->save_data('staff', $save_data);
+
+      if(isset($_FILES['staff_img']['name'])){
+        $time = time();
+        $image_name = 'staff_'.$staff_id.'_'.$time;
+        $config['upload_path'] = 'assets/images/staff/';
+        $config['allowed_types'] = 'png|jpg';
+        $config['file_name'] = $image_name;
+        $filename = $_FILES['staff_img']['name'];
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        $this->upload->initialize($config);
+        if ($this->upload->do_upload('staff_img')){
+          $up_image = array(
+          'staff_img' => $image_name.'.'.$ext,
+          );
+          $this->Admin_Model->update_info('staff_id', $staff_id, 'staff', $up_image);
+        }
+        else{
+          echo $error = $this->upload->display_errors();
+          $this->session->set_flashdata('status',$this->upload->display_errors());
+        }
+      }
+      $this->session->set_flashdata('save_success','success');
+      header('location:'.base_url().'Admin/staff_list');
+    }
+
+    $this->load->view('Admin/head');
+    $this->load->view('Admin/navbar');
+    $this->load->view('Admin/sidebar');
+    $this->load->view('Admin/staff');
+    $this->load->view('Admin/script');
+    $this->load->view('Admin/footer');
+
+  }
+
+  public function edit_staff($staff_id){
+    $ek_admin_id = $this->session->userdata('ek_admin_id');
+    if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
+
+    $this->form_validation->set_rules('staff_name', 'Title', 'trim|required');
+    if ($this->form_validation->run() != FALSE) {
+
+      $notification_status = $this->input->post('notification_status');
+      if(!isset($notification_status)){ $notification_status = '1'; }
+
+      $update_data = array(
+        'staff_type' => $this->input->post('staff_type'),
+        'staff_name' => $this->input->post('staff_name'),
+        'staff_qualification' => $this->input->post('staff_qualification'),
+        'staff_possition' => $this->input->post('staff_possition'),
+      );
+      $this->Admin_Model->update_info('staff_id', $staff_id, 'staff', $update_data);
+
+      if(isset($_FILES['staff_img']['name'])){
+         $time = time();
+         $image_name = 'notification_'.$notification_id.'_'.$time;
+         $config['upload_path'] = 'assets/images/staff/';
+         $config['allowed_types'] = 'png|jpg';
+         $config['file_name'] = $image_name;
+         $filename = $_FILES['staff_img']['name'];
+         $ext = pathinfo($filename, PATHINFO_EXTENSION);
+         $this->upload->initialize($config);
+         if ($this->upload->do_upload('staff_img')){
+           $up_image = array(
+             'staff_img' => $image_name.'.'.$ext,
+           );
+           $this->Admin_Model->update_info('staff_id', $staff_id, 'staff', $up_image);
+           $img_old = $this->input->post('img_old');
+           unlink("assets/images/notification/".$img_old);
+         }
+         else{
+           echo $error = $this->upload->display_errors();
+           $this->session->set_flashdata('status',$this->upload->display_errors());
+         }
+       }
+        $this->session->set_flashdata('update_success','success');
+        header('location:'.base_url().'Admin/staff_list');
+      }
+
+      $staff_info = $this->Admin_Model->get_info('staff_id', $staff_id, 'staff');
+      if($staff_info == ''){ header('location:'.base_url().'Admin/staff_list'); }
+      foreach($staff_info as $info_b){
+        $data['update'] = 'update';
+        $data['staff_type'] = $info_b->staff_type;
+        $data['staff_name'] = $info_b->staff_name;
+        $data['staff_qualification'] = $info_b->staff_qualification;
+        $data['staff_possition'] = $info_b->staff_possition;
+        $data['staff_img'] = $info_b->staff_img;
+      }
+      $this->load->view('Admin/head',$data);
+      $this->load->view('Admin/navbar',$data);
+      $this->load->view('Admin/sidebar',$data);
+      $this->load->view('Admin/staff',$data);
+      $this->load->view('Admin/script',$data);
+      $this->load->view('Admin/footer',$data);
+
+    }
+
+  public function delete_staff($staff_id){
+    $ek_admin_id = $this->session->userdata('ek_admin_id');
+    if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
+    $this->Admin_Model->delete_info('staff_id', $staff_id, 'staff');
+    $this->session->set_flashdata('delete_success','success');
+    header('location:'.base_url().'Admin/staff_list');
+  }
+
+  public function contact_emails(){
+    $ek_admin_id = $this->session->userdata('ek_admin_id');
+    if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
+
+    $data['contact_emails_list'] = $this->Admin_Model->get_list1('contact_mail_id','DESC','contact_mail');
+
+    $this->load->view('Admin/head',$data);
+    $this->load->view('Admin/navbar',$data);
+    $this->load->view('Admin/sidebar',$data);
+    $this->load->view('Admin/contact_emails',$data);
+    $this->load->view('Admin/script',$data);
+    $this->load->view('Admin/footer',$data);
+  }
+
 }
 ?>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2020 at 05:51 AM
+-- Generation Time: Feb 08, 2020 at 12:33 PM
 -- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- PHP Version: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,54 @@ SET time_zone = "+00:00";
 --
 -- Database: `eklavya`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `achievement`
+--
+
+CREATE TABLE `achievement` (
+  `achievement_id` int(11) NOT NULL,
+  `achievement_title` varchar(500) NOT NULL,
+  `achievement_type` varchar(250) DEFAULT NULL,
+  `achievement_status` int(11) NOT NULL DEFAULT 1,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `achievement`
+--
+
+INSERT INTO `achievement` (`achievement_id`, `achievement_title`, `achievement_type`, `achievement_status`, `date`) VALUES
+(1, 'up', 'Student', 1, '2020-02-08 07:53:45'),
+(2, 'qwer', 'School', 1, '2020-02-08 07:36:59'),
+(4, 'yyy', 'Teacher', 1, '2020-02-08 10:03:42');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `achievement_details`
+--
+
+CREATE TABLE `achievement_details` (
+  `achievement_details_id` int(11) NOT NULL,
+  `achievement_id` int(11) NOT NULL,
+  `achievement_details_title` varchar(500) DEFAULT NULL,
+  `achievement_details_name` varchar(250) DEFAULT NULL,
+  `achievement_details_img` varchar(250) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `achievement_details`
+--
+
+INSERT INTO `achievement_details` (`achievement_details_id`, `achievement_id`, `achievement_details_title`, `achievement_details_name`, `achievement_details_img`) VALUES
+(1, 2, 'aaa', 'sss', 'achievement_2_1_1581147419.jpg'),
+(15, 1, '1', '2', 'achievement_1_1_1581156070.jpg'),
+(16, 1, '2', '3', 'achievement_1_2_1581156062.JPG'),
+(17, 4, '4', '5', 'achievement_4_1_1581156223.JPG'),
+(18, 4, '6', '7', 'achievement_4_2_1581156223.JPG');
 
 -- --------------------------------------------------------
 
@@ -63,7 +111,8 @@ CREATE TABLE `announcement` (
 --
 
 INSERT INTO `announcement` (`announcement_id`, `announcement_no`, `announcement_date`, `announcement_title`, `announcement_image`, `priority`, `announcement_status`) VALUES
-(4, 1, '02-2-2020', 'CBSC 3', 'announcement_4_1580988961.jpg', 1, 1);
+(4, 1, '02-2-2020', 'CBSC 3', 'announcement_4_1581060999.jpg', 0, 1),
+(5, 2, '03-2-2020', 'Public Advisory : Unauthorized use of CBSE name and logo on Social Media', NULL, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -105,6 +154,30 @@ INSERT INTO `company` (`company_id`, `company_name`, `company_address`, `company
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contact_mail`
+--
+
+CREATE TABLE `contact_mail` (
+  `contact_mail_id` int(11) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `mobile` varchar(20) NOT NULL,
+  `subject` text NOT NULL,
+  `message` varchar(250) NOT NULL,
+  `date` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `contact_mail`
+--
+
+INSERT INTO `contact_mail` (`contact_mail_id`, `name`, `email`, `mobile`, `subject`, `message`, `date`) VALUES
+(1, 'Datta Mane', 'demo@email.com', '9876543210', 'demo sub', 'dfgf dsfgdf sdfgdf sdfgsd sdfgdsg', '08-02-2020 06:04:07AM'),
+(2, 'dfh', 'demo@email.com', '9876543210', 'dfgdfg', 'dfg sdfg', '08-02-2020 11:35:51AM');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `gallery`
 --
 
@@ -140,10 +213,33 @@ CREATE TABLE `gallery_photo` (
 --
 
 INSERT INTO `gallery_photo` (`gallery_photo_id`, `gallery_id`, `gallery_photo_name`) VALUES
-(1, 4, 'gallery_photo_4_1_1580992880.JPG'),
-(2, 4, 'gallery_photo_4_2_1580992880.JPG'),
-(3, 5, 'gallery_photo_5_1_1580992942.JPG'),
-(4, 5, 'gallery_photo_5_2_1580992942.JPG');
+(1, 5, 'gallery_photo_5_1_1580992942.JPG'),
+(2, 5, 'gallery_photo_5_1_1580992942.JPG'),
+(3, 5, 'gallery_photo_5_1_1580992942.JPG');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notification`
+--
+
+CREATE TABLE `notification` (
+  `notification_id` int(11) NOT NULL,
+  `notification_no` int(11) NOT NULL,
+  `notification_date` varchar(20) NOT NULL,
+  `notification_type` varchar(100) NOT NULL,
+  `notification_title` text NOT NULL,
+  `notification_image` varchar(250) NOT NULL,
+  `notification_status` int(11) NOT NULL DEFAULT 1,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `notification`
+--
+
+INSERT INTO `notification` (`notification_id`, `notification_no`, `notification_date`, `notification_type`, `notification_title`, `notification_image`, `notification_status`, `date`) VALUES
+(1, 1, '08-2-2020', 'Notification', 'asdf', 'notification_1_1581062828.jpg', 1, '2020-02-07 08:07:08');
 
 -- --------------------------------------------------------
 
@@ -163,9 +259,32 @@ CREATE TABLE `slider` (
 --
 
 INSERT INTO `slider` (`slider_id`, `slider_title`, `slider_img`, `slider_status`) VALUES
-(3, 'slider 3', 'slider_3_1580985742.jpg', 1),
-(4, 'slider 2', 'slider_4_1580985996.jpg', 1),
-(5, 'slider 1', 'slider_5_1580984158.jpg', 1);
+(3, 'slider 3', 'slider_3_1581138112.JPG', 1),
+(4, 'slider 2', 'slider_4_1581069509.jpg', 1),
+(5, 'slider 1', 'slider_5_1581069518.jpg', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `staff`
+--
+
+CREATE TABLE `staff` (
+  `staff_id` int(11) NOT NULL,
+  `staff_type` varchar(250) NOT NULL,
+  `staff_name` varchar(250) NOT NULL,
+  `staff_qualification` varchar(250) NOT NULL,
+  `staff_possition` varchar(250) NOT NULL,
+  `staff_img` varchar(250) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`staff_id`, `staff_type`, `staff_name`, `staff_qualification`, `staff_possition`, `staff_img`, `date`) VALUES
+(1, 'Teaching Staff', 'dsf', 'sdf', 'sdf', 'notification__1581161581.jpg', '2020-02-08 11:33:01');
 
 -- --------------------------------------------------------
 
@@ -204,6 +323,18 @@ INSERT INTO `user` (`user_id`, `company_id`, `branch_id`, `roll_id`, `user_name`
 --
 
 --
+-- Indexes for table `achievement`
+--
+ALTER TABLE `achievement`
+  ADD PRIMARY KEY (`achievement_id`);
+
+--
+-- Indexes for table `achievement_details`
+--
+ALTER TABLE `achievement_details`
+  ADD PRIMARY KEY (`achievement_details_id`);
+
+--
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
@@ -222,6 +353,12 @@ ALTER TABLE `company`
   ADD PRIMARY KEY (`company_id`);
 
 --
+-- Indexes for table `contact_mail`
+--
+ALTER TABLE `contact_mail`
+  ADD PRIMARY KEY (`contact_mail_id`);
+
+--
 -- Indexes for table `gallery`
 --
 ALTER TABLE `gallery`
@@ -234,10 +371,22 @@ ALTER TABLE `gallery_photo`
   ADD PRIMARY KEY (`gallery_photo_id`);
 
 --
+-- Indexes for table `notification`
+--
+ALTER TABLE `notification`
+  ADD PRIMARY KEY (`notification_id`);
+
+--
 -- Indexes for table `slider`
 --
 ALTER TABLE `slider`
   ADD PRIMARY KEY (`slider_id`);
+
+--
+-- Indexes for table `staff`
+--
+ALTER TABLE `staff`
+  ADD PRIMARY KEY (`staff_id`);
 
 --
 -- Indexes for table `user`
@@ -250,6 +399,18 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `achievement`
+--
+ALTER TABLE `achievement`
+  MODIFY `achievement_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `achievement_details`
+--
+ALTER TABLE `achievement_details`
+  MODIFY `achievement_details_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
@@ -259,13 +420,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `announcement`
 --
 ALTER TABLE `announcement`
-  MODIFY `announcement_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `announcement_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
   MODIFY `company_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `contact_mail`
+--
+ALTER TABLE `contact_mail`
+  MODIFY `contact_mail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `gallery`
@@ -277,13 +444,25 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT for table `gallery_photo`
 --
 ALTER TABLE `gallery_photo`
-  MODIFY `gallery_photo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `gallery_photo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `notification`
+--
+ALTER TABLE `notification`
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
   MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `staff`
+--
+ALTER TABLE `staff`
+  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
