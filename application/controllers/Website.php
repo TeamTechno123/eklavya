@@ -110,16 +110,24 @@ class Website extends CI_Controller {
 	  $this->load->view('Website/chairman_achievements');
 		$this->load->view('Include/footer');
 	}
+
 	public function teaching_staff(){
-		$this->load->view('Include/header');
-	  $this->load->view('Website/teaching_staff');
-		$this->load->view('Include/footer');
+		$data['staff_list'] = $this->Admin_Model->get_teaching_staff_list('Teaching Staff');
+		$data['title'] = 'Teaching Staff';
+
+		$this->load->view('Include/header', $data);
+	  $this->load->view('Website/teaching_staff', $data);
+		$this->load->view('Include/footer', $data);
 	}
 	public function nonteaching_staff(){
-		$this->load->view('Include/header');
-		$this->load->view('Website/nonteaching_staff');
-		$this->load->view('Include/footer');
+		$data['staff_list'] = $this->Admin_Model->get_nonteaching_staff_list('Teaching Staff');
+		$data['title'] = 'Non Teaching Staff';
+
+		$this->load->view('Include/header',$data);
+		$this->load->view('Website/nonteaching_staff',$data);
+		$this->load->view('Include/footer',$data);
 	}
+
 	public function cbsc_circulars(){
 		$data['cbsc_notification_list'] = $this->Admin_Model->get_cbsc_notification('Circulars');
 		$data['title'] = 'Circulars';
@@ -197,20 +205,40 @@ class Website extends CI_Controller {
 		$send = mail($recipient, $subject, $message1, $headers);
 		if($send){
 			$this->session->set_flashdata('send_email','success');
+
+			$save_data['name'] = $name;
+			$save_data['email'] = $email;
+			$save_data['mobile'] = $mobile;
+			$save_data['subject'] = $subject2;
+			$save_data['message'] = $message;
+			$save_data['date'] = date('d-m-Y h:i:sA');
+			$this->Admin_Model->save_data('contact_mail', $save_data);
+
+			$SMS = 'Enquiry mail sent successfully to Eklavya Public School';
+			$param['uname'] = 'wbcare';
+			$param['password'] = '123123';
+			$param['sender'] = 'AKCENT';
+			$param['receiver'] = $mobile_num.','.$customer_mob1;
+			$param['route'] = 'TA';
+			$param['msgtype'] = 1;
+			$param['sms'] = $SMS;
+			$parameters = http_build_query($param);
+			$url="http://msgblast.in/index.php/smsapi/httpapi";
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch,CURLOPT_HEADER, false);
+			curl_setopt($ch, CURLOPT_POST, 1);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
+			curl_setopt($ch, CURLOPT_POSTFIELDS,$parameters);
+			$result = curl_exec($ch);
+
 		}
 		else{
 			$this->session->set_flashdata('send_email','error');
 		}
 		header('Location:'.base_url('Website/contact'));
 
-		$save_data['name'] = $name;
-		$save_data['email'] = $email;
-		$save_data['mobile'] = $mobile;
-		$save_data['subject'] = $subject2;
-		$save_data['message'] = $message;
-		$save_data['date'] = date('d-m-Y h:i:sA');
-		$this->Admin_Model->save_data('contact_mail', $save_data);
 
-		}
+	}
 
 }

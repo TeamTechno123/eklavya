@@ -4,7 +4,18 @@
       <h1 class="page-heading text-center">Non</h1>
     </div>
     <div class="row">
-      <div class="col-md-3">
+      <?php foreach ($staff_list as $list) { ?>
+        <div class="col-md-3">
+          <div class="card">
+            <img class="card-img-top" src="<?php echo base_url(); ?>assets/images/staff/<?php echo $list->staff_img; ?>" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title text-center mb-1"><?php echo $list->staff_name; ?></h5>
+              <p class="card-text text-center"><?php echo $list->staff_qualification; ?></p>
+            </div>
+          </div>
+        </div>
+      <?php } ?>
+      <!-- <div class="col-md-3">
         <img class="gallery-img"  src="<?php echo base_url(); ?>assets/images/gallery01.jpg" width="100%" alt="">
       </div>
       <div class="col-md-3">
@@ -39,7 +50,7 @@
       </div>
       <div class="col-md-3">
         <img class="gallery-img" src="<?php echo base_url(); ?>assets/images/gallery12.jpg" width="100%" alt="">
-      </div>
+      </div> -->
     </div>
   </div>
 </section>

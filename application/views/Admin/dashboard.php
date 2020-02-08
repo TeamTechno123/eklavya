@@ -3,46 +3,30 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <!-- <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12 text-center mt-2">
             <h1>Company Information</h1>
           </div>
-          <!-- <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">General Form</li>
-            </ol>
-          </div> -->
         </div>
-      </div><!-- /.container-fluid -->
-    </section>
+      </div>
+    </section> -->
 
 
 
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <!-- left column -->
           <div class="col-md-10 offset-md-1">
-            <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Quick Example</h3>
+            <div class="card card-primary  mt-3">
+              <div class="card-header text-center">
+                <h3 class="card-title text-center">Eklavya Public School</h3>
               </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-
             </div>
-
           </div>
-          <!--/.col (left) -->
-          <!-- right column -->
-          <!--/.col (right) -->
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
 
     <section class="content">
@@ -51,52 +35,137 @@
         <h4 class="mb-3">Master Summary</h4>
         <div class="row">
           <!-- left column -->
-          <div class="col-md-3 col-6">
+          <div class="col-md-2 col-6">
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>15</h3>
-                <p>User Information</p>
+                <h3><?php echo $announcement_cnt ?></h3>
+                <p>Announcement</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="user_list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="announcement_list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <div class="col-md-3 col-6">
+          <div class="col-md-2 col-6">
             <div class="small-box bg-yellow">
               <div class="inner">
-                <h3>10</h3>
-                <p>Demo Information</p>
+                <h3><?php echo $gallery_cnt ?></h3>
+                <p>Gallery</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="make_information_list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="gallery_list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <div class="col-md-3 col-6">
+          <div class="col-md-2 col-6">
             <div class="small-box bg-green">
               <div class="inner">
-                <h3>5</h3>
-                <p>demo Information</p>
+                <h3><?php echo $slider_cnt; ?></h3>
+                <p>Slider</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="product_information_list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="slider_list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <div class="col-md-3 col-6">
+          <div class="col-md-2 col-6">
             <div class="small-box bg-red">
               <div class="inner">
-                <h3>5</h3>
-                <p>demo Information</p>
+                <h3><?php echo $notification_cnt; ?></h3>
+                <p>CBSC Notification</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="party_list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="notification_list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-md-2 col-6">
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><?php echo $circulars_cnt; ?></h3>
+                <p>CBSC Circulars</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="notification_list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-md-2 col-6">
+            <div class="small-box bg-primary">
+              <div class="inner">
+                <h3><?php echo $teaching_staff_cnt; ?></h3>
+                <p>Teaching Staff</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="staff_list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-md-2 col-6">
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3><?php echo $nonteaching_staff_cnt; ?></h3>
+                <p>Non Teaching Staff</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="staff_list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-md-2 col-6">
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3><?php echo $school_achievement_cnt; ?></h3>
+                <p>School Achievement</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="achievement_list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-md-2 col-6">
+            <div class="small-box bg-red">
+              <div class="inner">
+                <h3><?php echo $stud_achievement_cnt; ?></h3>
+                <p>Student Achievement</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="achievement_list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-md-2 col-6">
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><?php echo $teacher_achievement_cnt; ?></h3>
+                <p>Teacher Achievement</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="achievement_list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-md-2 col-6">
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3><?php echo $enq_cnt; ?></h3>
+                <p>Enquiry</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="achievement_list" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
         </div>

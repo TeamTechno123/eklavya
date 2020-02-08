@@ -40,16 +40,26 @@ class Admin extends CI_Controller{
 
   public function dashboard(){
     $ek_admin_id = $this->session->userdata('ek_admin_id');
-    if($ek_admin_id){
-      $this->load->view('Admin/head');
-      $this->load->view('Admin/navbar');
-      $this->load->view('Admin/sidebar');
-      $this->load->view('Admin/dashboard');
-      $this->load->view('Admin/script');
-      $this->load->view('Admin/footer');
-    } else{
-      header('location:'.base_url().'Admin');
-    }
+    if($ek_admin_id==''){   header('location:'.base_url().'Admin'); }
+
+    $data['announcement_cnt'] = $this->Admin_Model->get_count('announcement_id','','','','announcement_status',1,'announcement');
+    $data['gallery_cnt'] = $this->Admin_Model->get_count('gallery_id','','','','gallery_status',1,'gallery');
+    $data['slider_cnt'] = $this->Admin_Model->get_count('slider_id','','','','slider_status',1,'slider');
+    $data['notification_cnt'] = $this->Admin_Model->get_count('notification_id','','notification_type','Notification','notification_status',1,'notification');
+    $data['circulars_cnt'] = $this->Admin_Model->get_count('notification_id','','notification_type','Circulars','notification_status',1,'notification');
+    $data['teaching_staff_cnt'] = $this->Admin_Model->get_count('staff_id','','staff_type','Teaching Staff','','','staff');
+    $data['nonteaching_staff_cnt'] = $this->Admin_Model->get_count('staff_id','','staff_type !=','Teaching Staff','','','staff');
+    $data['school_achievement_cnt'] = $this->Admin_Model->get_count('achievement_id','','achievement_type','School','achievement_status',1,'achievement');
+    $data['stud_achievement_cnt'] = $this->Admin_Model->get_count('achievement_id','','achievement_type','Student','achievement_status',1,'achievement');
+    $data['teacher_achievement_cnt'] = $this->Admin_Model->get_count('achievement_id','','achievement_type','Teacher','achievement_status',1,'achievement');
+    $data['enq_cnt'] = $this->Admin_Model->get_count('contact_mail_id','','','','','','contact_mail');
+
+    $this->load->view('Admin/head', $data);
+    $this->load->view('Admin/navbar', $data);
+    $this->load->view('Admin/sidebar', $data);
+    $this->load->view('Admin/dashboard', $data);
+    $this->load->view('Admin/script', $data);
+    $this->load->view('Admin/footer', $data);
   }
 
   public function company_information(){
@@ -652,7 +662,7 @@ class Admin extends CI_Controller{
         $time = time();
         $image_name = 'notification_'.$notification_id.'_'.$time;
         $config['upload_path'] = 'assets/images/notification/';
-        $config['allowed_types'] = 'png|jpg';
+        $config['allowed_types'] = 'png|jpg|gif|pdf|doc|docx';
         $config['file_name'] = $image_name;
         $filename = $_FILES['notification_image']['name'];
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -702,7 +712,7 @@ class Admin extends CI_Controller{
          $time = time();
          $image_name = 'notification_'.$notification_id.'_'.$time;
          $config['upload_path'] = 'assets/images/notification/';
-         $config['allowed_types'] = 'png|jpg';
+         $config['allowed_types'] = 'png|jpg|gif|pdf|doc|docx';
          $config['file_name'] = $image_name;
          $filename = $_FILES['notification_image']['name'];
          $ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -1016,9 +1026,6 @@ public function delete_achievement_details(){
     $this->form_validation->set_rules('staff_name', 'Title', 'trim|required');
     if ($this->form_validation->run() != FALSE) {
 
-      $notification_status = $this->input->post('notification_status');
-      if(!isset($notification_status)){ $notification_status = '1'; }
-
       $update_data = array(
         'staff_type' => $this->input->post('staff_type'),
         'staff_name' => $this->input->post('staff_name'),
@@ -1029,7 +1036,7 @@ public function delete_achievement_details(){
 
       if(isset($_FILES['staff_img']['name'])){
          $time = time();
-         $image_name = 'notification_'.$notification_id.'_'.$time;
+         $image_name = 'staff_'.$staff_id.'_'.$time;
          $config['upload_path'] = 'assets/images/staff/';
          $config['allowed_types'] = 'png|jpg';
          $config['file_name'] = $image_name;
@@ -1042,7 +1049,7 @@ public function delete_achievement_details(){
            );
            $this->Admin_Model->update_info('staff_id', $staff_id, 'staff', $up_image);
            $img_old = $this->input->post('img_old');
-           unlink("assets/images/notification/".$img_old);
+           unlink("assets/images/staff/".$img_old);
          }
          else{
            echo $error = $this->upload->display_errors();

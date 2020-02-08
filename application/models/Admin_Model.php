@@ -64,6 +64,24 @@ class Admin_Model extends CI_Model{
     return $result;
   }
 
+  public function get_count($id_type,$company_id,$added_by,$mat_user_id,$status_col,$status_key,$tbl_name){
+    $this->db->select($id_type);
+    if($company_id != ''){
+      $this->db->where('company_id', $company_id);
+    }
+    if($added_by != ''){
+      $this->db->where($added_by, $mat_user_id);
+    }
+    if($status_col != ''){
+      $this->db->where($status_col, $status_key);
+    }
+
+    $this->db->from($tbl_name);
+      $query =  $this->db->get();
+    $result = $query->num_rows();
+    return $result;
+  }
+
 
 /**********************************************************************************************/
 /*********************************           Website         **********************************/
@@ -91,6 +109,26 @@ class Admin_Model extends CI_Model{
     $this->db->where('achievement_status',1);
     $this->db->order_by('achievement_id', 'DESC');
     $this->db->from('achievement');
+    $query = $this->db->get();
+    $result = $query->result();
+    return $result;
+  }
+
+  public function get_teaching_staff_list($type){
+    $this->db->select('*');
+    $this->db->where('staff_type',$type);
+    $this->db->order_by('staff_id', 'ASC');
+    $this->db->from('staff');
+    $query = $this->db->get();
+    $result = $query->result();
+    return $result;
+  }
+
+  public function get_nonteaching_staff_list($type){
+    $this->db->select('*');
+    $this->db->where('staff_type !=',$type);
+    $this->db->order_by('staff_id', 'ASC');
+    $this->db->from('staff');
     $query = $this->db->get();
     $result = $query->result();
     return $result;
