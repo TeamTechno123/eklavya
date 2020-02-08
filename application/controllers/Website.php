@@ -156,8 +156,7 @@ class Website extends CI_Controller {
 		$this->load->view('Website/annual_calender');
 		 $this->load->view('Include/footer');
 	}
-	public function registration_form()
-	{
+	public function registration_form(){
 		 $this->load->view('Include/header');
 		$this->load->view('Website/registration_form');
 		 $this->load->view('Include/footer');
