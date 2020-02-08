@@ -7,6 +7,8 @@
       <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
       <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/website.css">
       <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/ihover.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Bitter:400,700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" >
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
       <script src="<?php echo base_url(); ?>assets/css/jquery.bootstrap.newsbox.min.js" type="text/javascript"></script>
@@ -27,7 +29,8 @@
             <img class="cbsc-logo" src="<?php echo base_url(); ?>assets/images/school_logo.png" width="100%" alt="">
           </div>
           <div class="col-md-8 align-middle">
-              <h1 class="heading-big text-white text-center">EKLAVYA PUBLIC SCHOOL</h1>
+              <p class=" top-sm-head text-center">Aarya Chanakya Shikshan Sanstha's </p>
+              <h1 class="heading-big text-center">EKLAVYA PUBLIC SCHOOL</h1>
           </div>
           <div class="col-md-2 text-center ">
             <img class="cbsc-logo text-center" src="<?php echo base_url(); ?>assets/images/cbsc_logo.png" width="100%" alt="">

@@ -1,10 +1,23 @@
 body{
   padding: 0px!important;
   margin: 0px!important;
+
 }
 
+h1, p{
+    font-family: 'Roboto', sans-serif;
+}
+.vision li{
+    font-family: 'Roboto', sans-serif;
+}
+
+.roboto-ul li{
+  font-family: 'Roboto', sans-serif;
+}
 .cbsc-logo{
   width: auto;
+  margin-top: 5px;
+  margin-bottom: 3px;
   height:110px;
 }
 
@@ -26,8 +39,17 @@ body{
 
 .heading-big{
   font-size: 3.2rem;
-  padding-top: 30px;
+  padding-top: 0px;
   font-weight: bold;
+  color: #F52710;
+}
+
+.top-sm-head{
+  padding-top: 20px;
+  margin-bottom: 0px;
+  color: #F52710;
+  font-weight: bold;
+  font-size: 1.2rem.
 }
 
 .top-social{
@@ -180,12 +202,19 @@ footer{
   padding-bottom: 40px;
 }
 .about-image{
-border: 5px solid rgba(28,110,164,0.87);
-border-radius: 15px 15px 15px 15px;
+/* border: 5px solid rgba(28,110,164,0.87); */
+border-radius: 0px;
 }
 .text-div{
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+.text-div p{
+  font-family: 'Bitter', serif;
+}
+.font-bitter{
+  font-family: 'Bitter', serif;
 }
 
 .gallery-page{
@@ -208,4 +237,27 @@ border-radius: 15px 15px 15px 15px;
 
 .w-90{
   width: 100px !important;
+}
+
+.vision  li{
+  list-style-type: none;
+}
+
+.vision li::before {
+  content: "\273D ";
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+  margin-right: 8px;
+}
+.staff-div .card{
+  border: none!important;
+  margin-bottom: 20px;
+}
+
+.staff-div .card-img-top {
+  width: 180px;
+  height: 220px;
+  margin-left: auto;
+  margin-right: auto;
 }
