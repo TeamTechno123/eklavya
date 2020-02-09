@@ -14,8 +14,8 @@
           </div>
         </div>
       </div>
-      <div class="col-md-2 offset-md-2">
-          <img width="100%" src="<?php echo base_url(); ?>assets/images/school_logo.png" alt="Card image cap">
+      <div class="col-md-2 offset-md-2 text-center">
+          <img width="100%" class="teaching-page-logo" src="<?php echo base_url(); ?>assets/images/school_logo.png" alt="Card image cap">
       </div>
       <div class="col-md-3 offset-md-2">
         <div class="card">

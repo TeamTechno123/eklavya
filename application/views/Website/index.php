@@ -27,7 +27,7 @@
 <section class="Announcements">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 col-12">
         <div class="panel panel-default">
           <div class="panel-heading">  <h4 class="announ-head"> <i class="fas fa-bullhorn mr-2"></i>Recent Announcements</h4></div>
             <div class="panel-body">
@@ -102,7 +102,7 @@
 <section class="round-sec">
   <div class="container">
     <div class="row">
-      <div class="col-sm-2">
+      <div class="col-sm-2 col-6">
         <a href="#">
         <div class="round-img text-center">
             <img src="<?php echo base_url(); ?>assets/images/wo.png" alt="" width="100%">
@@ -110,7 +110,7 @@
         </div>
         </a>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-2 col-6">
         <a href="#">
         <div class="round-img text-center">
             <img src="<?php echo base_url(); ?>assets/images/wo2.png" alt="" width="100%">
@@ -118,7 +118,7 @@
         </div>
         </a>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-2 col-6">
         <a href="#">
         <div class="round-img text-center">
             <img src="<?php echo base_url(); ?>assets/images/wo.png" alt="" width="100%">
@@ -126,7 +126,7 @@
         </div>
         </a>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-2 col-6">
         <a href="#">
         <div class="round-img text-center">
             <img src="<?php echo base_url(); ?>assets/images/wo2.png" alt="" width="100%">
@@ -134,7 +134,7 @@
         </div>
         </a>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-2 col-6">
         <a href="#">
         <div class="round-img text-center">
             <img src="<?php echo base_url(); ?>assets/images/wo.png" alt="" width="100%">
@@ -142,7 +142,7 @@
         </div>
         </a>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-2 col-6">
         <a href="#">
         <div class="round-img text-center">
             <img src="<?php echo base_url(); ?>assets/images/wo2.png" alt="" width="100%">
