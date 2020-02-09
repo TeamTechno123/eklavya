@@ -1,11 +1,38 @@
 
 <footer>
-<div class="container">
+  <div class="container">
+    <div class="row text-white">
+      <div class="col-md-3 text-center">
+        <img class=" mt-3" src="<?php echo base_url(); ?>assets/images/school_logo.png" width="50%" alt="">
+        <h4>Eklavya Public School</h4>
+      </div>
+      <div class="col-md-3">
+        <h5 class="mb-4 mt-3">About Eklavya School</h5>
+        <p>Our vision is to inspire students to acquire value education, knowledge and skills that will support them, as life-long learners and sustainers.
+          Our mission is to foster the ability in every student to flourish as a global citizen.</p>
+      </div>
+      <div class="col-md-3">
+        <h5 class="mb-4 mt-3">Featured Links</h5>
+        <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;About</p>
+        <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;Annual Calender</p>
+        <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;Announcements</p>
+        <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;Gallery</p>
+      </div>
+      <div class="col-md-3">
+        <h5 class="mb-4 mt-3">Contact</h5>
+        <p class="mb-3 row"><i class="fa fa-home col-2 pr-0 pt-1 text-yellow" aria-hidden="true"></i><span class="col-10 p-0">Waghbeel, Panhala, Rakshi, Maharashtra 416201</span></p>
+        <p class="mb-3 row"><i class="fa fa-phone col-2 pr-0 pt-1 text-yellow" aria-hidden="true"></i><span class="col-10 p-0">+91 98813 09940</span></p>
+        <p class="mb-3 row"><i class="fa fa-envelope col-2 pr-0 pt-1 text-yellow" aria-hidden="true"></i><span class="col-10 p-0">info@eklavyapublicschool.com</span></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="footer-copy p-3">
   <div class="row text-center">
     <p class="text-white text-center w-100 mb-0">Copyright © Eklavya Public School</p>
   </div>
 </div>
-</footer>
 
   <!-- <script src="<?php echo base_url(); ?>assets/css/jquery.min.js"></script> -->
   <script src="<?php echo base_url(); ?>assets/css/popper.min.js"></script>

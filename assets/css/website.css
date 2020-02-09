@@ -189,7 +189,35 @@ color: #fff!important;
 footer{
   padding-top: 20px;
   padding-bottom: 20px;
+  background-color: #2e353e!important
+}
+
+footer p{
+  font-size: 14px;
+}
+
+.footer-copy{
   background-color: #050505;
+}
+
+.txt-red{
+  color: #F52710 !important;
+}
+
+.text-yellow{
+  color: yellow !important;
+}
+
+footer h5:after {
+    border-bottom: 2px solid yellow;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 14%;
+    top: 44px;
+    margin-left: 15px;
+    /* margin: 0 auto; */
 }
 
 .contact-page-top{
