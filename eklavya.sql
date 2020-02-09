@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2020 at 12:33 PM
+-- Generation Time: Feb 09, 2020 at 05:47 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -284,7 +284,13 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`staff_id`, `staff_type`, `staff_name`, `staff_qualification`, `staff_possition`, `staff_img`, `date`) VALUES
-(1, 'Teaching Staff', 'dsf', 'sdf', 'sdf', 'notification__1581161581.jpg', '2020-02-08 11:33:01');
+(2, 'Teaching Staff', 'Mrs. Swami V. V.', 'M. A. B. Ed.', '', 'staff_2_1581162695.png', '2020-02-08 11:51:35'),
+(3, 'Teaching Staff', 'Miss. Thorat S. P.', 'B. A. B. Ed.', '', 'staff_3_1581162742.png', '2020-02-08 11:52:22'),
+(4, 'Teaching Staff', 'Miss Shaikh R. S.', 'B. Sc.', '', 'staff_4_1581162787.png', '2020-02-08 11:53:07'),
+(5, 'Teaching Staff', 'Mr. Patil K. G.', 'DCE', '', 'staff_5_1581162819.png', '2020-02-08 11:53:39'),
+(6, 'Office Staff', 'Mrs. Mulla R. I.', 'B. Com', 'Sr. Clerk', 'staff_6_1581163387.png', '2020-02-08 12:04:09'),
+(7, 'Office Staff', 'Mrs. Toraskar M. M.', 'B. Com', 'Jr. Clerk', 'staff_7_1581163441.png', '2020-02-08 12:04:01'),
+(8, 'Office Staff', 'Mrs. Patil S. B.', 'B.A.M.Lib', 'Librarian', 'staff_8_1581163499.png', '2020-02-08 12:04:59');
 
 -- --------------------------------------------------------
 
@@ -462,7 +468,7 @@ ALTER TABLE `slider`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user`
