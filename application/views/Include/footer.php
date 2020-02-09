@@ -13,10 +13,10 @@
       </div>
       <div class="col-md-3">
         <h5 class="mb-4 mt-3">Featured Links</h5>
-        <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;About</p>
-        <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;Annual Calender</p>
-        <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;Announcements</p>
-        <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;Gallery</p>
+      <a class="text-white" href="<?php echo base_url(); ?>Website/about">  <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;About</p></a>
+      <a class="text-white" href="<?php echo base_url(); ?>Website/annual_calender">   <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;Annual Calender</p></a>
+      <a class="text-white" href="<?php echo base_url(); ?>Website/announcement">  <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;Announcements</p></a>
+      <a class="text-white" href="<?php echo base_url(); ?>Gallery">  <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;Gallery</p></a>
       </div>
       <div class="col-md-3">
         <h5 class="mb-4 mt-3">Contact</h5>

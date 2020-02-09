@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2020 at 05:47 AM
+-- Generation Time: Feb 09, 2020 at 11:17 AM
 -- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.10
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -42,7 +42,7 @@ CREATE TABLE `achievement` (
 
 INSERT INTO `achievement` (`achievement_id`, `achievement_title`, `achievement_type`, `achievement_status`, `date`) VALUES
 (1, 'up', 'Student', 1, '2020-02-08 07:53:45'),
-(2, 'qwer', 'School', 1, '2020-02-08 07:36:59'),
+(2, 'School Trip', 'School', 1, '2020-02-09 09:42:59'),
 (4, 'yyy', 'Teacher', 1, '2020-02-08 10:03:42');
 
 -- --------------------------------------------------------
@@ -64,7 +64,7 @@ CREATE TABLE `achievement_details` (
 --
 
 INSERT INTO `achievement_details` (`achievement_details_id`, `achievement_id`, `achievement_details_title`, `achievement_details_name`, `achievement_details_img`) VALUES
-(1, 2, 'aaa', 'sss', 'achievement_2_1_1581147419.jpg'),
+(1, 2, 'School Trip', 'School Trip', 'achievement_2_1_1581241334.jpg'),
 (15, 1, '1', '2', 'achievement_1_1_1581156070.jpg'),
 (16, 1, '2', '3', 'achievement_1_2_1581156062.JPG'),
 (17, 4, '4', '5', 'achievement_4_1_1581156223.JPG'),
