@@ -9,7 +9,7 @@
         $achievement_details_list = $this->Admin_Model->get_list_by_id('achievement_id',$achievement_id,'','','achievement_details');
       ?>
         <div class="col-md-12 mb-3 text-center">
-          <h4>dfgfg</h4>
+          <h4></h4>
         </div>
         <?php foreach ($achievement_details_list as $list2) { ?>
           <div class="col-md-4 mb-3">

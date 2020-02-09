@@ -10,6 +10,16 @@ class Website extends CI_Controller {
 		$data['slider_list'] = $this->Admin_Model->get_list_by_id('slider_status',1,'slider_id','ASC','slider');
 		$data['announcement_list'] = $this->Admin_Model->get_list_by_id('announcement_status',1,'announcement_id','ASC','announcement');
 
+		$gallery_list = $this->Admin_Model->get_list_by_id('gallery_status',1,'gallery_id','DESC','gallery');
+		foreach ($gallery_list as $gallery_list1) {
+			$gallery_id = $gallery_list1->gallery_id;
+			$gallery_photo = $this->Admin_Model->get_list_by_id('gallery_id',$gallery_id,'gallery_photo_id','DESC','gallery_photo');
+			foreach ($gallery_photo as $gallery_photo1) { }
+			$gallery_list1->title_img = $gallery_photo1->gallery_photo_name;
+			$data1[] = $gallery_list1;
+		}
+
+		$data['gallery_list'] = $data1;
 		$this->load->view('Include/header',$data);
 	  $this->load->view('Website/index',$data);
 		$this->load->view('Include/footer',$data);
