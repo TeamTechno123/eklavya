@@ -7,8 +7,8 @@
         <h4>Eklavya Public School</h4>
       </div>
       <div class="col-md-3">
-        <h5 class="mb-4 mt-3">About Eklavya School</h5>
-        <p>Our vision is to inspire students to acquire value education, knowledge and skills that will support them, as life-long learners and sustainers.
+        <h5 class="mb-4 mt-3 ">About Eklavya School</h5>
+        <p class="text-justify">Our vision is to inspire students to acquire value education, knowledge and skills that will support them, as life-long learners and sustainers.
           Our mission is to foster the ability in every student to flourish as a global citizen.</p>
       </div>
       <div class="col-md-3">

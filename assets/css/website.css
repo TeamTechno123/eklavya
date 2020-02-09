@@ -386,4 +386,11 @@ padding-right: 15px;
   text-align: center;
 }
 
+.mobile-center{
+  text-align: center;
+}
+.table-div {
+  width: 100%;
+}
+
 }

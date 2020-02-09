@@ -5,7 +5,7 @@
     </div>
 
   <div class="row">
-    <a href="#"> Fee Details</a>
+    <a class="text-center w-100" href="<?php echo base_url(); ?>Website/contact"> <h5>For detail fees structure kindly contact at eklavyapublicschool@gmail.com</h5> </a>
   </div>
   </div>
 </section>
