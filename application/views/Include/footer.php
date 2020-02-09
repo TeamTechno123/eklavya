@@ -21,7 +21,7 @@
       <div class="col-md-3">
         <h5 class="mb-4 mt-3">Contact</h5>
         <p class="mb-3 row"><i class="fa fa-home col-2 pr-0 pt-1 text-yellow" aria-hidden="true"></i><span class="col-10 p-0">Waghbeel, Panhala, Rakshi, Maharashtra 416201</span></p>
-        <p class="mb-3 row"><i class="fa fa-phone col-2 pr-0 pt-1 text-yellow" aria-hidden="true"></i><span class="col-10 p-0">+91 98813 09940</span></p>
+        <p class="mb-3 row"><i class="fa fa-phone col-2 pr-0 pt-1 text-yellow" aria-hidden="true"></i><span class="col-10 p-0">+91 9511942030</span></p>
         <p class="mb-3 row"><i class="fa fa-envelope col-2 pr-0 pt-1 text-yellow" aria-hidden="true"></i><span class="col-10 p-0">info@eklavyapublicschool.com</span></p>
       </div>
     </div>
