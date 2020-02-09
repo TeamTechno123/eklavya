@@ -14,7 +14,7 @@
       <script src="<?php echo base_url(); ?>assets/css/jquery.bootstrap.newsbox.min.js" type="text/javascript"></script>
   </head>
   <body>
-    <section class="top-social">
+    <section class="top-social  d-none d-sm-block">
       <div class="container">
         <div class="col-12 text-right">
             <p> <span class="pr-3 text-white">Contact With Us :</span>  <i class="fab text-white fa-facebook-f"></i>  &nbsp; <i class="fab text-white fa-twitter"></i> &nbsp; <i class="fab text-white fa-linkedin-in"></i> &nbsp; <i class="fab text-white fa-instagram"></i>  </p>
