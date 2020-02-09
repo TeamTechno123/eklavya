@@ -42,9 +42,9 @@
         <h4>Contact Us</h4>
         <p> <b class="big-text">Address :</b> Waghbeel, Panhala, Rakshi, Maharashtra 416201</p>
 
-        <p> <b  class="big-text">Principal  : </b> +91 855094 2204 </p>
-        <p> <b  class="big-text">Vice-Principal : </b> +91 959565 9500 </p>
-        <p> <b  class="big-text">Phone : </b> +91 951194 2030</p>
+        <p> <b  class="big-text">Principal  No. : </b> +91 855094 2204 </p>
+        <p> <b  class="big-text">Vice-Principal No. : </b> +91 959565 9500 </p>
+        <p> <b  class="big-text">School No. : </b> +91 951194 2030</p>
         <p> <b  class="big-text">Email : </b> <span class="theme-color">info@eklavyapublicschool.com</span> </p>
        <p class="center"> <a class="social" href="#"><i class="fab fa-facebook-f social"></i></a>   &nbsp; <a class="social" href="#"><i class="fab fa-twitter"></i></a> &nbsp;
          <a class="social" href="#"><i class="fab fa-linkedin-in"></i></a> &nbsp; <a class="social" href="#"><i class="fab fa-instagram"></i></a>  </p>
