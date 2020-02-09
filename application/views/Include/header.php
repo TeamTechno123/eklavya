@@ -14,7 +14,7 @@
       <script src="<?php echo base_url(); ?>assets/css/jquery.bootstrap.newsbox.min.js" type="text/javascript"></script>
   </head>
   <body>
-    <section class="top-social">
+    <section class="top-social  d-none d-sm-block">
       <div class="container">
         <div class="col-12 text-right">
             <p> <span class="pr-3 text-white">Contact With Us :</span>  <i class="fab text-white fa-facebook-f"></i>  &nbsp; <i class="fab text-white fa-twitter"></i> &nbsp; <i class="fab text-white fa-linkedin-in"></i> &nbsp; <i class="fab text-white fa-instagram"></i>  </p>
@@ -25,14 +25,14 @@
     <section class="top-nav">
       <div class="container">
         <div class="row">
-          <div class="col-md-2">
+          <div class="col-md-2 col-3">
             <img class="cbsc-logo" src="<?php echo base_url(); ?>assets/images/school_logo.png" width="100%" alt="">
           </div>
-          <div class="col-md-8 align-middle">
+          <div class="col-md-8 col-9 align-middle">
               <p class=" top-sm-head text-center">Aarya Chanakya Shikshan Sanstha's </p>
               <h1 class="heading-big text-center">EKLAVYA PUBLIC SCHOOL</h1>
           </div>
-          <div class="col-md-2 text-center ">
+          <div class="col-md-2 d-none d-sm-block  text-center  ">
             <img class="cbsc-logo text-center" src="<?php echo base_url(); ?>assets/images/cbsc_logo.png" width="100%" alt="">
           </div>
         </div>
