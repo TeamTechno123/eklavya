@@ -7,6 +7,8 @@
       <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
       <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/website.css">
       <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/ihover.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Petit+Formal+Script&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Yatra+One&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Bitter:400,700&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" >
@@ -17,7 +19,7 @@
     <section class="top-social  d-none d-sm-block">
       <div class="container">
         <div class="col-12 text-right">
-            <p> <span class="pr-3 text-white">Contact With Us :</span>  <i class="fab text-white fa-facebook-f"></i>  &nbsp; <i class="fab text-white fa-twitter"></i> &nbsp; <i class="fab text-white fa-linkedin-in"></i> &nbsp; <i class="fab text-white fa-instagram"></i>  </p>
+            <p> <span class="pr-3 facebook ">Follow Us On :</span>  <i class="fab  fa-facebook-f facebook"></i>  &nbsp; <i class="fab twitter fa-twitter"></i> &nbsp; <i class="fab text-white linkedin fa-linkedin-in"></i> &nbsp; <i class="fab instagram fa-instagram"></i>  </p>
         </div>
       </div>
 
