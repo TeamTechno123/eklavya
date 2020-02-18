@@ -32,7 +32,8 @@
           </div>
           <div class="col-md-8 col-9 align-middle">
               <p class=" top-sm-head text-center">Aarya Chanakya Shikshan Sanstha's </p>
-              <h1 class="heading-big text-center">EKLAVYA PUBLIC SCHOOL</h1>
+              <h1 class="heading-big text-center mb-0">EKLAVYA PUBLIC SCHOOL</h1>
+              <p class="text-center address-top">Waghbil, Panhala</p>
           </div>
           <div class="col-md-2 d-none d-sm-block  text-center  ">
             <img class="cbsc-logo text-center" src="<?php echo base_url(); ?>assets/images/cbsc_logo.png" width="100%" alt="">

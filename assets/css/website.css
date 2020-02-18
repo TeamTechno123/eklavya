@@ -60,6 +60,16 @@ h1, p{
   font-size: 1.4rem;
 }
 
+.address-top{
+  padding-top: 0px!important;
+  padding-bottom: 10px;
+  margin-bottom: 0px;
+  color: #EBD6A2;
+  /* font-weight: bold; */
+  font-family: 'Petit Formal Script', cursive;
+  font-size: 1.2rem;
+}
+
 .top-social{
   padding-top: 5px;
   background-color: 	#F4DDB9;
@@ -344,6 +354,16 @@ border-radius: 0px;
   .top-sm-head{
     padding-top: 20px;
     margin-bottom: 4px;
+    color: #EBD6A2;
+    /* font-weight: bold; */
+    font-family: 'Petit Formal Script', cursive;
+    font-size: 11px;
+  }
+
+  .address-top{
+    padding-top: 0px!important;
+    padding-bottom: 10px;
+    margin-bottom: 0px;
     color: #EBD6A2;
     /* font-weight: bold; */
     font-family: 'Petit Formal Script', cursive;
