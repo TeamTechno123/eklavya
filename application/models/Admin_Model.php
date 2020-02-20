@@ -54,7 +54,9 @@ class Admin_Model extends CI_Model{
 
   public function get_list_by_id($col_name,$col_val,$order_col,$order,$tbl_name){
     $this->db->select('*');
-    $this->db->where($col_name,$col_val);
+    if($col_name != ''){
+      $this->db->where($col_name,$col_val);
+    }
     if($order_col != ''){
       $this->db->order_by($order_col, $order);
     }

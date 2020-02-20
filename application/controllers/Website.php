@@ -10,6 +10,16 @@ class Website extends CI_Controller {
 		$data['slider_list'] = $this->Admin_Model->get_list_by_id('slider_status',1,'slider_id','ASC','slider');
 		$data['announcement_list'] = $this->Admin_Model->get_list_by_id('announcement_status',1,'announcement_id','ASC','announcement');
 
+		$gallery_list = $this->Admin_Model->get_list_by_id('gallery_status',1,'gallery_id','DESC','gallery');
+		foreach ($gallery_list as $gallery_list1) {
+			$gallery_id = $gallery_list1->gallery_id;
+			$gallery_photo = $this->Admin_Model->get_list_by_id('gallery_id',$gallery_id,'gallery_photo_id','DESC','gallery_photo');
+			foreach ($gallery_photo as $gallery_photo1) { }
+			$gallery_list1->title_img = $gallery_photo1->gallery_photo_name;
+			$data1[] = $gallery_list1;
+		}
+
+		$data['gallery_list'] = $data1;
 		$this->load->view('Include/header',$data);
 	  $this->load->view('Website/index',$data);
 		$this->load->view('Include/footer',$data);
@@ -194,7 +204,7 @@ class Website extends CI_Controller {
 		$message = $this->input->post('message');
 		$message1 = $message.' mobile No.'.$mobile;
 		$from_email = $email;
-		$recipient = "demo@gmail.com";
+		$recipient = "eklavyapublicschool@gmail.com";
 		$subject = "Mail From Website - ".$subject2;
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -214,11 +224,13 @@ class Website extends CI_Controller {
 			$save_data['date'] = date('d-m-Y h:i:sA');
 			$this->Admin_Model->save_data('contact_mail', $save_data);
 
-			$SMS = 'Enquiry mail sent successfully to Eklavya Public School';
+			$mobile2 = "9595659500";
+
+			$SMS = 'Thanks for visiting on eklavyapublicschool.org.in. Our representative contact you shortly';
 			$param['uname'] = 'wbcare';
 			$param['password'] = '123123';
 			$param['sender'] = 'AKCENT';
-			$param['receiver'] = $mobile_num.','.$customer_mob1;
+			$param['receiver'] = $mobile.','.$mobile2;
 			$param['route'] = 'TA';
 			$param['msgtype'] = 1;
 			$param['sms'] = $SMS;

@@ -400,8 +400,7 @@ class Admin extends CI_Controller{
               $file_data['gallery_id'] = $gallery_id;
               $file_data['gallery_photo_name'] = $image_name.'.'.$ext;
               $this->Admin_Model->save_data('gallery_photo', $file_data);
-            }
-            else{
+            } else{
               $error = $this->upload->display_errors();
               $this->session->set_flashdata('status',$this->upload->display_errors());
             }
