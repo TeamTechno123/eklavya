@@ -224,11 +224,13 @@ class Website extends CI_Controller {
 			$save_data['date'] = date('d-m-Y h:i:sA');
 			$this->Admin_Model->save_data('contact_mail', $save_data);
 
-			$SMS = 'Enquiry mail sent successfully to Eklavya Public School';
+			$mobile2 = "9595659500";
+
+			$SMS = 'Thanks for visiting on eklavyapublicschool.org.in. Our representative contact you shortly';
 			$param['uname'] = 'wbcare';
 			$param['password'] = '123123';
 			$param['sender'] = 'AKCENT';
-			$param['receiver'] = $mobile_num.','.$customer_mob1;
+			$param['receiver'] = $mobile.','.$mobile2;
 			$param['route'] = 'TA';
 			$param['msgtype'] = 1;
 			$param['sms'] = $SMS;
