@@ -102,54 +102,19 @@
 <section class="round-sec">
   <div class="container">
     <div class="row">
-      <div class="col-sm-2 col-6">
-        <a href="#">
-        <div class="round-img text-center">
-            <img src="<?php echo base_url(); ?>assets/images/wo.png" alt="" width="100%">
-            <p class="text-center">Media Gallery</p>
+
+      <?php if(isset($gallery_list)){ foreach ($gallery_list as $gallery_list1) { ?>
+
+        <div class="col-sm-2 col-6">
+          <a href="<?php echo base_url(); ?>Gallery-Images/<?php echo $gallery_list1->gallery_id; ?>">
+          <div class="round-img text-center">
+              <img src="<?php echo base_url(); ?>assets/images/gallery/<?php echo $gallery_list1->title_img; ?>" alt="" width="100%">
+              <p class="text-center"><?php echo $gallery_list1->gallery_title; ?></p>
+          </div>
+          </a>
         </div>
-        </a>
-      </div>
-      <div class="col-sm-2 col-6">
-        <a href="#">
-        <div class="round-img text-center">
-            <img src="<?php echo base_url(); ?>assets/images/wo2.png" alt="" width="100%">
-            <p class="text-center">Media Gallery</p>
-        </div>
-        </a>
-      </div>
-      <div class="col-sm-2 col-6">
-        <a href="#">
-        <div class="round-img text-center">
-            <img src="<?php echo base_url(); ?>assets/images/wo.png" alt="" width="100%">
-            <p class="text-center">Media Gallery</p>
-        </div>
-        </a>
-      </div>
-      <div class="col-sm-2 col-6">
-        <a href="#">
-        <div class="round-img text-center">
-            <img src="<?php echo base_url(); ?>assets/images/wo2.png" alt="" width="100%">
-            <p class="text-center">Media Gallery</p>
-        </div>
-        </a>
-      </div>
-      <div class="col-sm-2 col-6">
-        <a href="#">
-        <div class="round-img text-center">
-            <img src="<?php echo base_url(); ?>assets/images/wo.png" alt="" width="100%">
-            <p class="text-center">Media Gallery</p>
-        </div>
-        </a>
-      </div>
-      <div class="col-sm-2 col-6">
-        <a href="#">
-        <div class="round-img text-center">
-            <img src="<?php echo base_url(); ?>assets/images/wo2.png" alt="" width="100%">
-            <p class="text-center">Media Gallery</p>
-        </div>
-        </a>
-      </div>
+
+      <?php } } ?>
     </div>
   </div>
 </section>

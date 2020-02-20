@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 09, 2020 at 05:47 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.10
+-- Host: localhost:3306
+-- Generation Time: Feb 18, 2020 at 10:08 AM
+-- Server version: 5.6.41-84.1-log
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `eklavya`
+-- Database: `lawprzjm_eklavya`
 --
 
 -- --------------------------------------------------------
@@ -32,8 +32,8 @@ CREATE TABLE `achievement` (
   `achievement_id` int(11) NOT NULL,
   `achievement_title` varchar(500) NOT NULL,
   `achievement_type` varchar(250) DEFAULT NULL,
-  `achievement_status` int(11) NOT NULL DEFAULT 1,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `achievement_status` int(11) NOT NULL DEFAULT '1',
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `achievement` (
 
 INSERT INTO `achievement` (`achievement_id`, `achievement_title`, `achievement_type`, `achievement_status`, `date`) VALUES
 (1, 'up', 'Student', 1, '2020-02-08 07:53:45'),
-(2, 'qwer', 'School', 1, '2020-02-08 07:36:59'),
+(2, 'School Trip', 'School', 1, '2020-02-09 09:42:59'),
 (4, 'yyy', 'Teacher', 1, '2020-02-08 10:03:42');
 
 -- --------------------------------------------------------
@@ -64,7 +64,7 @@ CREATE TABLE `achievement_details` (
 --
 
 INSERT INTO `achievement_details` (`achievement_details_id`, `achievement_id`, `achievement_details_title`, `achievement_details_name`, `achievement_details_img`) VALUES
-(1, 2, 'aaa', 'sss', 'achievement_2_1_1581147419.jpg'),
+(1, 2, 'School Trip', 'School Trip', 'achievement_2_1_1581241334.jpg'),
 (15, 1, '1', '2', 'achievement_1_1_1581156070.jpg'),
 (16, 1, '2', '3', 'achievement_1_2_1581156062.JPG'),
 (17, 4, '4', '5', 'achievement_4_1_1581156223.JPG'),
@@ -102,8 +102,8 @@ CREATE TABLE `announcement` (
   `announcement_date` varchar(100) DEFAULT NULL,
   `announcement_title` varchar(250) DEFAULT NULL,
   `announcement_image` varchar(250) DEFAULT NULL,
-  `priority` int(11) NOT NULL DEFAULT 0,
-  `announcement_status` int(11) NOT NULL DEFAULT 1
+  `priority` int(11) NOT NULL DEFAULT '0',
+  `announcement_status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -141,7 +141,7 @@ CREATE TABLE `company` (
   `company_end_date` varchar(15) NOT NULL,
   `company_logo` varchar(200) NOT NULL,
   `company_seal` varchar(150) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -173,7 +173,9 @@ CREATE TABLE `contact_mail` (
 
 INSERT INTO `contact_mail` (`contact_mail_id`, `name`, `email`, `mobile`, `subject`, `message`, `date`) VALUES
 (1, 'Datta Mane', 'demo@email.com', '9876543210', 'demo sub', 'dfgf dsfgdf sdfgdf sdfgsd sdfgdsg', '08-02-2020 06:04:07AM'),
-(2, 'dfh', 'demo@email.com', '9876543210', 'dfgdfg', 'dfg sdfg', '08-02-2020 11:35:51AM');
+(2, 'dfh', 'demo@email.com', '9876543210', 'dfgdfg', 'dfg sdfg', '08-02-2020 11:35:51AM'),
+(3, 'keval patil', 'kevalpatil97@gmail.com', '9096209797', 'admission ', 'sir i want to take admission', '12-02-2020 12:36:41PM'),
+(4, 'digambar bhosale', 'digambarbhosale95@gmail.com', '9595659500', 'admission', 'please contact me', '17-02-2020 11:25:53AM');
 
 -- --------------------------------------------------------
 
@@ -186,7 +188,7 @@ CREATE TABLE `gallery` (
   `gallery_no` int(11) DEFAULT NULL,
   `gallery_date` varchar(100) DEFAULT NULL,
   `gallery_title` varchar(250) DEFAULT NULL,
-  `gallery_status` int(11) NOT NULL DEFAULT 1
+  `gallery_status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -194,7 +196,12 @@ CREATE TABLE `gallery` (
 --
 
 INSERT INTO `gallery` (`gallery_id`, `gallery_no`, `gallery_date`, `gallery_title`, `gallery_status`) VALUES
-(5, 1, '06-2-2020', 'Sports', 1);
+(5, 1, '06-2-2020', 'Sports', 1),
+(6, 2, '11-2-2020', 'Computer Lab', 1),
+(7, 3, '11-2-2020', 'Art and Craft', 1),
+(8, 4, '11-2-2020', 'Science Lab', 1),
+(9, 5, '17-2-2020', 'Tracking', 1),
+(10, 6, '17-2-2020', 'Annual Function', 0);
 
 -- --------------------------------------------------------
 
@@ -213,9 +220,33 @@ CREATE TABLE `gallery_photo` (
 --
 
 INSERT INTO `gallery_photo` (`gallery_photo_id`, `gallery_id`, `gallery_photo_name`) VALUES
-(1, 5, 'gallery_photo_5_1_1580992942.JPG'),
-(2, 5, 'gallery_photo_5_1_1580992942.JPG'),
-(3, 5, 'gallery_photo_5_1_1580992942.JPG');
+(7, 5, 'gallery_photo_5_1_1581416953.jpg'),
+(8, 5, 'gallery_photo_5_1_1581417009.jpg'),
+(9, 5, 'gallery_photo_5_2_1581417009.jpg'),
+(10, 5, 'gallery_photo_5_1_1581417243.JPG'),
+(11, 6, 'gallery_photo_6_1_1581417607.jpg'),
+(12, 6, 'gallery_photo_6_2_1581417607.JPG'),
+(13, 6, 'gallery_photo_6_3_1581417607.JPG'),
+(14, 6, 'gallery_photo_6_4_1581417607.JPG'),
+(15, 7, 'gallery_photo_7_1_1581417936.jpg'),
+(16, 7, 'gallery_photo_7_2_1581417936.jpg'),
+(17, 7, 'gallery_photo_7_3_1581417936.jpg'),
+(18, 7, 'gallery_photo_7_4_1581417936.jpg'),
+(19, 8, 'gallery_photo_8_1_1581418218.JPG'),
+(20, 8, 'gallery_photo_8_2_1581418218.JPG'),
+(21, 8, 'gallery_photo_8_3_1581418218.JPG'),
+(22, 8, 'gallery_photo_8_4_1581418218.JPG'),
+(23, 9, 'gallery_photo_9_1_1581929259.jpg'),
+(24, 9, 'gallery_photo_9_2_1581929259.jpg'),
+(25, 9, 'gallery_photo_9_3_1581929259.jpg'),
+(26, 9, 'gallery_photo_9_4_1581929259.jpg'),
+(27, 9, 'gallery_photo_9_5_1581929259.jpg'),
+(28, 10, 'gallery_photo_10_1_1581934242.JPG'),
+(29, 10, 'gallery_photo_10_2_1581934242.JPG'),
+(30, 10, 'gallery_photo_10_3_1581934242.JPG'),
+(31, 10, 'gallery_photo_10_4_1581934242.JPG'),
+(32, 10, 'gallery_photo_10_5_1581934242.jpg'),
+(33, 10, 'gallery_photo_10_6_1581934242.jpg');
 
 -- --------------------------------------------------------
 
@@ -230,8 +261,8 @@ CREATE TABLE `notification` (
   `notification_type` varchar(100) NOT NULL,
   `notification_title` text NOT NULL,
   `notification_image` varchar(250) NOT NULL,
-  `notification_status` int(11) NOT NULL DEFAULT 1,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `notification_status` int(11) NOT NULL DEFAULT '1',
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -251,7 +282,7 @@ CREATE TABLE `slider` (
   `slider_id` int(11) NOT NULL,
   `slider_title` varchar(250) DEFAULT NULL,
   `slider_img` varchar(250) DEFAULT NULL,
-  `slider_status` int(11) NOT NULL DEFAULT 1
+  `slider_status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -259,9 +290,12 @@ CREATE TABLE `slider` (
 --
 
 INSERT INTO `slider` (`slider_id`, `slider_title`, `slider_img`, `slider_status`) VALUES
-(3, 'slider 3', 'slider_3_1581138112.JPG', 1),
-(4, 'slider 2', 'slider_4_1581069509.jpg', 1),
-(5, 'slider 1', 'slider_5_1581069518.jpg', 1);
+(6, 'school building', 'slider_6_1581405835.jpg', 1),
+(7, 'preyanshi', 'slider_7_1581415992.jpg', 1),
+(8, 'chaintya', 'slider_8_1581416259.jpg', 1),
+(9, 'sport', 'slider_9_1581416862.jpg', 1),
+(11, 'Tracking', 'slider_11_1581932151.jpg', 1),
+(12, 'Football', 'slider_12_1581934651.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -276,7 +310,7 @@ CREATE TABLE `staff` (
   `staff_qualification` varchar(250) NOT NULL,
   `staff_possition` varchar(250) NOT NULL,
   `staff_img` varchar(250) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -302,7 +336,7 @@ CREATE TABLE `user` (
   `user_id` bigint(20) NOT NULL,
   `company_id` bigint(20) NOT NULL,
   `branch_id` varchar(100) NOT NULL,
-  `roll_id` int(11) NOT NULL DEFAULT 2,
+  `roll_id` int(11) NOT NULL DEFAULT '2',
   `user_name` varchar(250) NOT NULL,
   `user_lastname` varchar(100) NOT NULL,
   `user_city` varchar(150) NOT NULL,
@@ -312,8 +346,8 @@ CREATE TABLE `user` (
   `user_otp` varchar(10) DEFAULT NULL,
   `user_status` varchar(20) NOT NULL DEFAULT 'active',
   `user_addedby` varchar(100) NOT NULL,
-  `user_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `is_admin` int(11) NOT NULL DEFAULT 0
+  `user_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `is_admin` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -438,19 +472,19 @@ ALTER TABLE `company`
 -- AUTO_INCREMENT for table `contact_mail`
 --
 ALTER TABLE `contact_mail`
-  MODIFY `contact_mail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `contact_mail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `gallery_photo`
 --
 ALTER TABLE `gallery_photo`
-  MODIFY `gallery_photo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `gallery_photo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `notification`
@@ -462,7 +496,7 @@ ALTER TABLE `notification`
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `staff`

@@ -4,6 +4,7 @@
       <h1 class="page-heading text-center"> Annual Calender</h1>
     </div>
 
+<div class="table-div">
   <div class="row">
                 <table class="table">
                   <thead class="thead-light">
@@ -306,13 +307,14 @@
               <td></td>
             </tr>
             <tr>
-              <th scope="row">24th To <br> 12th  November    </th>
+              <th scope="row">24th To <br> 12th Nov</th>
               <td></td>
               <td>Diwali  Vacation</td>
               <td></td>
             </tr>
           </tbody>
-            </table>
+      </table>
+
 
             <table class="table">
               <thead class="thead-light">
@@ -564,5 +566,6 @@
             </table>
             <p>All the above mentioned dates are tentative and subject to change.</p>
   </div>
+    </div>
   </div>
 </section>

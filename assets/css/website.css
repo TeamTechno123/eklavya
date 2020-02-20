@@ -22,7 +22,8 @@ h1, p{
 }
 
 .top-nav{
-  background-color: #34d8a3;
+  /* background-color: #34d8a3; */
+  background-color: #0B2345;
   /* background-color: 	#FDCD00;   /yellow   */
 }
 
@@ -41,22 +42,54 @@ h1, p{
   font-size: 3.2rem;
   padding-top: 0px;
   font-weight: bold;
-  color: #F52710;
+  color: #EBD6A2;
+  font-family: 'Yatra One', cursive;
+  font-weight: 700;
+  /* background: linear-gradient(to top, #E74609, 30%, #F1934B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+
 }
 
 .top-sm-head{
   padding-top: 20px;
   margin-bottom: 0px;
-  color: #F52710;
-  font-weight: bold;
-  font-size: 1.2rem.
+  color: #EBD6A2;
+  /* font-weight: bold; */
+  font-family: 'Petit Formal Script', cursive;
+  font-size: 1.4rem;
+}
+
+.address-top{
+  padding-top: 0px!important;
+  padding-bottom: 10px;
+  margin-bottom: 0px;
+  color: #EBD6A2;
+  /* font-weight: bold; */
+  font-family: 'Petit Formal Script', cursive;
+  font-size: 1.2rem;
 }
 
 .top-social{
   padding-top: 5px;
-  background-color: #000;
+  background-color: 	#F4DDB9;
 }
 
+.facebook{
+  color: #3b5998!important;
+}
+.twitter{
+  color: #00acee!important;
+}
+.linkedin{
+  color: #0e76a8!important;
+}
+.instagram{
+  color: #F56040!important;
+}
+.text-intent{
+ text-indent: 50px;
+}
 .slider-img{
   width: 100%;
   height: 450px;
@@ -292,6 +325,17 @@ border-radius: 0px;
   margin-right: auto;
 }
 
+.model-img{
+  width: 100%;
+  height: 500px!important;
+}
+
+
+.photo-gallery-img{
+  width: 250px;
+  height: 180px!important;
+}
+
 @media screen and (max-width: 400px) {
   .slider-img{
     width: 100%;
@@ -309,18 +353,29 @@ border-radius: 0px;
 
   .top-sm-head{
     padding-top: 20px;
+    margin-bottom: 4px;
+    color: #EBD6A2;
+    /* font-weight: bold; */
+    font-family: 'Petit Formal Script', cursive;
+    font-size: 11px;
+  }
+
+  .address-top{
+    padding-top: 0px!important;
+    padding-bottom: 10px;
     margin-bottom: 0px;
-    color: #F52710;
-    font-weight: bold;
-    font-size: 12px;
+    color: #EBD6A2;
+    /* font-weight: bold; */
+    font-family: 'Petit Formal Script', cursive;
+    font-size: 11px;
   }
 
 
   .heading-big{
-    font-size: 19px;
-    padding-top: 0px;
-    font-weight: bold;
-    color: #F52710;
+    font-size: 18px;
+    padding-top: 5px;
+    color: #EBD6A2;
+    font-family: 'Yatra One', cursive;
   }
 .navbar-toggler{
   border-color: #fff!important;
@@ -384,6 +439,23 @@ padding-right: 15px;
 
 #con-text .center{
   text-align: center;
+}
+
+.mobile-center{
+  text-align: center;
+}
+.table-div {
+  width: 100%;
+}
+
+.model-img{
+  width: 110px;
+  height: 180px!important;
+}
+
+.photo-gallery-img{
+  width: 100%;
+  height: 200px!important;
 }
 
 }

@@ -5,7 +5,7 @@
     </div>
 
   <div class="row">
-    <a href="#">Registration Form</a>
+    <a class="text-center w-100" href="<?php echo base_url(); ?>assets/images/admission_form.docx"><h4>Registration Form</h4></a>
   </div>
   </div>
 </section>
