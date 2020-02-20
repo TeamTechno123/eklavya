@@ -9,7 +9,7 @@
     <div class="row border-contact">
       <div class="col-md-6">
         <div class="alert alert-success " role="alert" style="display:none">
-          Message Send Successfully
+          Email Send Successfully
         </div>
         <div class="alert alert-danger" role="alert" style="display:none">
           Email Not Send please Try Again
