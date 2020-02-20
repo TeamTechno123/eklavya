@@ -1,5 +1,6 @@
 <section class="contact-page-top">
 <h1 class="text-center" >Contact Us</h1>
+
 </section>
 
 <section class="contact-middle">
@@ -7,6 +8,12 @@
   <div class="container">
     <div class="row border-contact">
       <div class="col-md-6">
+        <div class="alert alert-success " role="alert" style="display:none">
+          Message Send Successfully
+        </div>
+        <div class="alert alert-danger" role="alert" style="display:none">
+          Email Not Send please Try Again
+        </div>
         <div class="mail-contact d-none d-sm-block">
           <div class="form contact-form">
             <h4>Let's Connect</h4>
@@ -101,3 +108,16 @@
   </div>
 </div>
 </section>
+
+
+<script type="text/javascript">
+      $(document).ready(function(){
+
+        <?php if($this->session->flashdata('send_email_sucess')){ ?>
+            $('.alert-success').show().delay(5000).fadeOut();
+      <?php  }
+      elseif ($this->session->flashdata('send_email_error')) {?>
+        $('.alert-danger').show().delay(5000).fadeOut();
+      <?php } ?>
+      });
+    </script>

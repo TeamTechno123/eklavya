@@ -243,14 +243,12 @@ class Website extends CI_Controller {
 			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
 			curl_setopt($ch, CURLOPT_POSTFIELDS,$parameters);
 			$result = curl_exec($ch);
-
+			echo $result;
+			$this->session->set_flashdata('send_email_sucess','Sucess');
 		}
 		else{
-			$this->session->set_flashdata('send_email','error');
+			$this->session->set_flashdata('send_email_error','error');
 		}
 		header('Location:'.base_url('Website/contact'));
-
-
 	}
-
 }
