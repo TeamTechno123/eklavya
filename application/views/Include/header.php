@@ -4,6 +4,7 @@
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Eklavya Public School</title>
+      <link rel="icon" href="<?php echo base_url(); ?>assets/images/favicon.png" type="image/x-icon">
       <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
       <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/website.css">
       <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/ihover.min.css">
@@ -50,29 +51,29 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url(); ?>Website">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         About Us
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/about">About Eklavya</a>
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/vision">Vision & Mission</a>
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/administrative">Administrator Desk</a>
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/chairman_desk">Chairman Desk</a>
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/secretery">Secretary Desk</a>
+          <a class="dropdown-item" href="<?php echo base_url(); ?>About-Eklavya">About Eklavya</a>
+          <a class="dropdown-item" href="<?php echo base_url(); ?>Vision-Mission">Vision & Mission</a>
+          <a class="dropdown-item" href="<?php echo base_url(); ?>Administrator">Administrator Desk</a>
+          <a class="dropdown-item" href="<?php echo base_url(); ?>Chairman">Chairman Desk</a>
+          <a class="dropdown-item" href="<?php echo base_url(); ?>Secretary">Secretary Desk</a>
         </div>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Achivements
+      Achievement
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/school_achivement">School Achivement</a>
+          <a class="dropdown-item" href="<?php echo base_url(); ?>School-Achivement">School Achievements</a>
           <!-- <a class="dropdown-item" href="<?php echo base_url(); ?>Website/chairman_achivement">Chairman Achivement</a> -->
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/teacher_achivement">Teacher Achivement</a>
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/student_achivement">Student Achivement</a>
+          <a class="dropdown-item" href="<?php echo base_url(); ?>Teacher-Achivement">Teacher Achievements</a>
+          <a class="dropdown-item" href="<?php echo base_url(); ?>Student-Achivement">Student Achievements</a>
         </div>
       </li>
 
@@ -81,9 +82,9 @@
       School
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/principal">Principal's Desk</a>
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/teaching_staff">Teaching Staff</a>
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/nonteaching_staff">Non-Teaching Staff</a>
+          <a class="dropdown-item" href="<?php echo base_url(); ?>Principal">Principal's Desk</a>
+          <a class="dropdown-item" href="<?php echo base_url(); ?>Teaching-Staff">Teaching Staff</a>
+          <a class="dropdown-item" href="<?php echo base_url(); ?>Non-Teaching-Staff">Non-Teaching Staff</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -91,9 +92,9 @@
       Academics
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/annual_calender">Annual Calendar</a>
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/cbsc_circulars">CBSE Circular</a>
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/cbsc_notification">CBSE Notification</a>
+          <a class="dropdown-item" href="<?php echo base_url(); ?>Annual-Calendar">Annual Calendar</a>
+          <a class="dropdown-item" href="<?php echo base_url(); ?>CBSE-Circular">CBSE Circular</a>
+          <a class="dropdown-item" href="<?php echo base_url(); ?>CBSE-Notification">CBSE Notification</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -101,22 +102,22 @@
       Admission Process
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/registration_form">Registration Form</a>
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/fee_details">Fee Details</a>
-          <a class="dropdown-item" href="<?php echo base_url(); ?>Website/documents">Documents</a>
+          <a class="dropdown-item" href="<?php echo base_url(); ?>Registration-Form">Registration Form</a>
+          <a class="dropdown-item" href="<?php echo base_url(); ?>Fee-Details">Fee Details</a>
+          <a class="dropdown-item" href="<?php echo base_url(); ?>Documents">Documents</a>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url(); ?>Website/compitition">Compitition</a>
+        <a class="nav-link" href="<?php echo base_url(); ?>Compitition">Competition</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>Gallery">Gallery</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url(); ?>Website/announcement">Announcements</a>
+        <a class="nav-link" href="<?php echo base_url(); ?>Announcements">Announcements</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url(); ?>Website/contact">Contact</a>
+        <a class="nav-link" href="<?php echo base_url(); ?>Contact">Contact</a>
       </li>
     </ul>
   </div>

@@ -36,6 +36,7 @@
                     <input type="text" class="form-control required" name="slider_title" id="slider_title" value="<?php if(isset($slider_title)){ echo $slider_title; } ?>" placeholder="Slider Title" required>
                   </div>
                   <div class="form-group col-md-12">
+                    <label>Image Size Must Be 1920px * 600px</label>
                     <input type="file" name="slider_img" id="slider_img" class="form-control form-control-sm" id="exampleInputFile">
                   </div>
 

@@ -42,6 +42,9 @@
                   <div class="form-group text-right col-md-6">
                       <button type="button"  id="add_row" class="btn btn-sm btn-primary px-4">Add More </button>
                   </div>
+                  <div class="col-md-12">
+                    <label>Image Size Must Be 750px * 500px and Size Less Than 1MB</label>
+                  </div>
                   <table id="myTable" class="table table-bordered mb-4 tbl_cust1">
                     <?php if(isset($update)){
                       foreach ($gallery_photo_list as $list) { ?>

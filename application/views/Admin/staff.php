@@ -43,6 +43,7 @@
                     <input type="text" class="form-control required" name="staff_qualification" id="staff_qualification" value="<?php if(isset($staff_qualification)){ echo $staff_qualification; } ?>" placeholder="Qualification">
                   </div>
                   <div class="form-group col-md-12">
+                      <label>Image Size Must Be 180px * 220px and Size Less Than 1MB </label>
                     <input type="file" name="staff_img" id="staff_img" class="form-control" id="exampleInputFile">
                   </div>
                   <?php if(isset($staff_img)){ ?>

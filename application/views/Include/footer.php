@@ -13,9 +13,9 @@
       </div>
       <div class="col-md-3">
         <h5 class="mb-4 mt-3">Featured Links</h5>
-      <a class="text-white" href="<?php echo base_url(); ?>Website/about">  <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;About</p></a>
-      <a class="text-white" href="<?php echo base_url(); ?>Website/annual_calender">   <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;Annual Calender</p></a>
-      <a class="text-white" href="<?php echo base_url(); ?>Website/announcement">  <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;Announcements</p></a>
+      <a class="text-white" href="<?php echo base_url(); ?>About-Eklavya">  <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;About</p></a>
+      <a class="text-white" href="<?php echo base_url(); ?>Annual-Calendar">   <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;Annual Calender</p></a>
+      <a class="text-white" href="<?php echo base_url(); ?>Announcements">  <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;Announcements</p></a>
       <a class="text-white" href="<?php echo base_url(); ?>Gallery">  <p class="mb-3"><i class="fa fa-chevron-right text-yellow" aria-hidden="true"></i> &nbsp;Gallery</p></a>
       </div>
       <div class="col-md-3">
@@ -29,9 +29,16 @@
 </footer>
 
 <div class="footer-copy p-3">
+  <div class="container">
   <div class="row text-center">
-    <p class="text-white text-center w-100 mb-0">Copyright © Eklavya Public School</p>
+   <div class="col-md-6">
+     <p class="text-white1  w-100 mb-0" >Copyright © Eklavya Public School </p>
+   </div>
+    <div class="col-md-6">
+      <p class="text-white1  w-100 mb-0"> Design & Developed By <a class="text-yellow1" target="_blank" href="https://technothinksup.com/">Techno Thinks Up Solutions Pvt Ltd </a>  </p>
+    </div>
   </div>
+</div>
 </div>
 
   <!-- <script src="<?php echo base_url(); ?>assets/css/jquery.min.js"></script> -->

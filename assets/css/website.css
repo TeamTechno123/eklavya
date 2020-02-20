@@ -72,7 +72,14 @@ h1, p{
 
 .top-social{
   padding-top: 5px;
-  background-color: 	#F4DDB9;
+  background-color: #F4DDB9;
+}
+
+.text-white1{
+  color: #e2ded7!important;
+}
+.text-yellow1{
+  color: 	#F4DDB9!important;
 }
 
 .facebook{

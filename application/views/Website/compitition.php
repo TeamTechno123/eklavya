@@ -1,7 +1,7 @@
 <section class="gallery-page">
   <div class="container">
     <div class="col-md-12">
-      <h1 class="page-heading text-center">Compitition </h1>
+      <h1 class="page-heading text-center">Competition </h1>
     </div>
     <div class="row">
       <div class="col-md-12">

@@ -51,7 +51,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'Website';
 $route['Gallery'] = 'Website/gallery';
-$route['Gallery'] = 'Website/gallery';
+// $route['Gallery'] = 'Website/gallery';
 $route['Gallery-Images/:num'] = 'Website/gallery_images/$i';
+$route['About-Eklavya'] = 'Website/about';
+$route['Vision-Mission'] = 'Website/vision';
+$route['Administrator'] = 'Website/administrative';
+$route['Chairman'] = 'Website/chairman_desk';
+$route['Secretary'] = 'Website/secretery';
+$route['School-Achivement'] = 'Website/school_achivement';
+$route['Teacher-Achivement'] = 'Website/teacher_achivement';
+$route['Student-Achivement'] = 'Website/student_achivement';
+$route['Principal'] = 'Website/principal';
+$route['Teaching-Staff'] = 'Website/teaching_staff';
+$route['Non-Teaching-Staff'] = 'Website/nonteaching_staff';
+$route['Annual-Calendar'] = 'Website/annual_calender';
+$route['CBSE-Circular'] = 'Website/cbsc_circulars';
+$route['CBSE-Notification'] = 'Website/cbsc_notification';
+$route['Registration-Form'] = 'Website/registration_form';
+$route['Fee-Details'] = 'Website/fee_details';
+$route['Documents'] = 'Website/documents';
+$route['Compitition'] = 'Website/compitition';
+$route['Contact'] = 'Website/contact';
+$route['Announcements'] = 'Website/announcement';
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
